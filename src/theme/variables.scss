@@ -1,0 +1,18 @@
+$color__dark-shade100: #1F2041;
+$color__dark-shade75: rgba($color__dark-shade100, .75);
+$color__dark-shade50: rgba($color__dark-shade100, .5);;
+$color__dark-shade25: rgba($color__dark-shade100, .25);;
+$color__dark-shade5: rgba($color__dark-shade100, .5);;
+$color__purple: #BC9CFF;
+$color__green: #6FCF97;
+
+$color__text-main: $color__dark-shade75;
+$color__text-title: $color__dark-shade100;
+$color__text-field: $color__dark-shade25;
+$color__text-field-active: $color__text-main;
+
+$gradient__primary: linear-gradient(180deg, #BC9CFF 0%, #8BA4F9 100%);
+$gradient__secondary: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+
+$font__main: 'Montserrat', Arial, sans-serif;
+$font__titles: 'Quicksand', Arial, sans-serif;

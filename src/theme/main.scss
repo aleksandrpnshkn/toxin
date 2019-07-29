@@ -1,0 +1,33 @@
+@import 'variables';
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: $font__main;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+// TODO вынести отдельно
+.title {
+    font-family: $font__titles;
+    font-size: 24px;
+    line-height: 30px;
+    color: $color__text-title;
+
+    &--2 {
+        font-size: 19px;
+        line-height: 24px;
+    }
+
+    &--3 {
+        font-family: $font__main;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+    }
+}
