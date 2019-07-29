@@ -1,0 +1,20 @@
+mixin radio(params)
+    -
+        const { name,
+              inputs,
+              checked,
+              className='', // Additional classes for input
+              disabled } = params;
+
+    each input in inputs
+        - const { value, label } = input;
+
+        label.radio__label= label
+            input(
+                class=`radio__input visuallyhidden ${className}`
+                type='radio',
+                name=name,
+                value=value,
+                checked=checked
+                disabled=disabled
+            )

@@ -1,0 +1,31 @@
+extends ../layout/main
+
+include ../components/field/field
+include ../components/checkbox/checkbox
+include ../components/radio/radio
+
+block variables
+    -
+        const title = 'UI kit';
+        const description = 'UI kit';
+        const pageClass = 'ui-kit-page';
+
+block content
+    h1.title= title
+
+    +field({
+        type: 'email',
+        label: 'Text field',
+        placeholder: 'Email',
+    })
+    +checkbox({
+        label: 'Checkbox',
+        name: 'test',
+    })
+    +radio({
+        name: 'gender',
+        inputs: [
+            {value: 'man', label: 'Мужчина'},
+            {value: 'woman', label: 'Женщина'},
+        ],
+    })

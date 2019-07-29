@@ -1,0 +1,26 @@
+include ../icon/icon
+
+mixin checkbox(params)
+    -
+        const { label,
+                name,
+                className='', // Additional classes for input
+                value,
+                checked,
+                disabled=false } = params;
+
+    .checkbox
+        label.checkbox__label(tabindex=0)
+            input(
+                class=`checkbox__input visuallyhidden ${className}`
+                type='checkbox'
+                name=name
+                checked=checked
+                disabled=disabled
+                value=value
+            )
+
+            span.checkbox__custom-box
+                +icon('checkbox__check-icon fas fa-check')
+
+            =label
