@@ -1,0 +1,43 @@
+@import './../../theme/variables';
+
+.radio__label {
+    display: flex;
+    align-items: center;
+
+    color: $color__dark-shade50;
+}
+
+.radio__custom-radio {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+
+    border: 1px solid $color__dark-shade25;
+    border-radius: 50%;
+}
+.radio__label:hover .radio__custom-radio,
+.radio__label:focus .radio__custom-radio,
+.radio__label:active .radio__custom-radio {
+    border-color: $color__dark-shade50;
+}
+.radio__input:checked + .radio__custom-radio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-color: $color__purple;
+
+    &::before { // Circle in custom radio
+        content: '';
+
+        width: 12px;
+        height: 12px;
+
+        background: $gradient__primary;
+        border-radius: 50%;
+    }
+}
+
+.radio__input:checked ~ .radio__label-text { // change label-text color when input is checked
+    color: $color__text-main;
+}
