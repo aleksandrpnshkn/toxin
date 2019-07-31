@@ -27,10 +27,6 @@
 
     border: 1px solid $color__dark-shade25;
     border-radius: 4px;
-
-    #{$hover} {
-        border-color: $color__purple;
-    }
 }
 
 .checkbox__label:hover .checkbox__custom-box,
