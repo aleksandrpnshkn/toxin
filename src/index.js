@@ -1,6 +1,6 @@
-import './main.scss';
-import 'lodash';
+import 'normalize.css';
+import './theme/main.scss';
 
-const greeting = () => 'hello';
-
-console.log(greeting());
+import './components/icon';
+import './components/field';
+import './components/checkbox';
