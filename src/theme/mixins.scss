@@ -1,6 +1,8 @@
 //noinspection CssInvalidPropertyValue
 @mixin gradient-color($gradient) {
     @supports (background-clip: text) or (-webkit-background-clip: text) {
+        color: transparent;
+
         background: $gradient;
         background-clip: text;
     }
