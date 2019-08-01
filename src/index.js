@@ -6,3 +6,4 @@ import './components/field';
 import './components/checkbox';
 import './components/radio';
 import './components/toggle-input';
+import './components/like-btn';

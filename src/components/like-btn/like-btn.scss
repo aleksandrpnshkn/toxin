@@ -1,0 +1,29 @@
+@import './../../theme/variables';
+
+.like-btn {
+    display: inline-flex;
+    width: 40px;
+    height: 20px;
+
+    font-size: 10px;
+    line-height: 1;
+    color: $color__dark-shade25;
+
+    background: transparent;
+    border: 1px solid $color__dark-shade25;
+    border-radius: 10px;
+
+    &--clicked {
+        color: $color__purple;
+        border-color: $color__purple;
+    }
+}
+
+.like-btn__icon {
+    margin-right: 4px;
+    font-size: inherit;
+}
+
+.like-btn__count {
+    margin: 0 auto;
+}
