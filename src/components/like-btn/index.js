@@ -12,6 +12,8 @@ const handleClick = function({ currentTarget }) {
 
   const isClicked = $clickedBtn.hasClass('like-btn--clicked');
   $likesCounter.text((isClicked) ? +likesCount + 1 : +likesCount - 1); // Increment or decrement likes
+
+  $('.like-btn__icon', currentTarget).text((isClicked) ? 'favorite' : 'favorite_border'); // Change icon
 };
 
 $likeButtons.click(handleClick);
