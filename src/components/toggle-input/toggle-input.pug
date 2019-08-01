@@ -1,0 +1,8 @@
+mixin toggleInput(param)
+    - const { label } = param;
+
+    .toggle-input
+        label.toggle-input__label
+            input.toggle-input__checkbox.visuallyhidden(type='checkbox')
+            span.toggle-input__toggle-box
+            span.toggle-input__label-text= label

@@ -3,6 +3,7 @@ extends ../layout/main
 include ../components/field/field
 include ../components/checkbox/checkbox
 include ../components/radio/radio
+include ../components/toggle-input/toggle-input
 
 block variables
     -
@@ -28,4 +29,7 @@ block content
             {value: 'man', label: 'Мужчина'},
             {value: 'woman', label: 'Женщина'},
         ],
+    })
+    +toggleInput({
+        label: 'Toggle button',
     })
