@@ -1,5 +1,6 @@
-mixin likeBtn(likesCount)
-    button.like-btn(type='button')
-        i.like-btn__icon.material-icons favorite_border
+mixin likeBtn(likesCount, isClicked)
+    button(class=`like-btn ${(isClicked) ? 'like-btn--clicked' : ''}`
+           type='button')
+        i.like-btn__icon.material-icons= (isClicked) ? 'favorite' : 'favorite_border'
         span.like-btn__count= likesCount
         span.visuallyhidden Like
