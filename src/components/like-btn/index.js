@@ -1,5 +1,4 @@
-import $ from 'jquery';
-import './like-btn.scss';
+import './like-btn.scss'
 
 const $likeButtons = $('.like-btn');
 

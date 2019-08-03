@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlPlugin = require('html-webpack-plugin');
@@ -97,13 +98,12 @@ module.exports = {
       template: `${PAGES_DIR}/${page}`,
       filename: `./${page.replace(/\.pug$/, '.html')}`,
     })),
-    // ...PAGES.map((page) => new HtmlPlugin({
-    //   template: `${PAGES_DIR}/${page}`,
-    //   filename: `./${page}`,
-    // })),
     new CopyPlugin([
       { from: `${PATHS.src}/assets`, to: `${PATHS.assets}/assets` },
-      // { from: `${PATHS.src}/static`, to: '' },
     ]),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
   ]
 };

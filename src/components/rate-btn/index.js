@@ -1,4 +1,3 @@
-import $ from 'jquery';
 import './rate-btn.scss';
 
 const $rateBtn = $('.rate-btn');
