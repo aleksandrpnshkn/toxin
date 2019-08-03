@@ -1,0 +1,59 @@
+@import './../../theme/variables';
+
+.btn {
+    position: relative; // btn__label
+    padding: 14px 20px;
+
+    font-family: $font__main;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #FFFFFF;
+
+    background: $gradient__primary;
+    border: none;
+    border-radius: 22px;
+
+    cursor: pointer;
+
+    #{$hover} {
+        opacity: .5;
+    }
+
+    &--light {
+        position: relative; // ::before
+
+        padding: 12px 18px;
+
+        color: $color__purple;
+        background: white;
+        background-clip: padding-box;
+
+        border: 2px solid transparent;
+
+        &::before { // Gradient background
+            content: '';
+
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            z-index: -1;
+
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+
+            background: $gradient__primary;
+            border-radius: 22px;
+        }
+
+        #{$hover} {
+            opacity: 1;
+
+            &::before {
+                opacity: .5;
+            }
+        }
+    }
+}

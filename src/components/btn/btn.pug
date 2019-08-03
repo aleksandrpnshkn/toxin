@@ -1,0 +1,23 @@
+mixin btn(params)
+    -
+        const { label,
+                type='submit',
+                className='',
+                light, // True if --light
+                href,
+                disabled } = params;
+
+    if type === 'link'
+        a(
+            class=`btn ${className} ${light ? 'btn--light': ''}`
+            href=href
+            disabled
+        )
+            span.btn__label= label
+    else
+        button(
+            class=`btn ${className} ${light ? 'btn--light': ''}`
+            type=type
+            disabled=disabled
+        )
+            span.btn__label= label

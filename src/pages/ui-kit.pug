@@ -7,6 +7,7 @@ include ../components/toggle-input/toggle-input
 include ../components/like-btn/like-btn
 include ../components/rate-btn/rate-btn
 include ../components/range-slider/range-slider
+include ../components/btn/btn
 
 block variables
     -
@@ -68,4 +69,21 @@ block content
             to: 245,
             minValue: 0,
             maxValue: 0,
+        })
+
+    div
+        +btn({
+            label: 'Button',
+            type: 'button',
+        })
+        +btn({
+            label: 'Light button',
+            type: 'button',
+            className: 'test',
+            light: true,
+        })
+        +btn({
+            label: 'Link button',
+            href: '/ui-kit.html',
+            type: 'link',
         })
