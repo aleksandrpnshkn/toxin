@@ -7,4 +7,5 @@ import './components/checkbox';
 import './components/radio';
 import './components/toggle-input';
 import './components/like-btn';
-import './components/rate-btn'
+import './components/rate-btn';
+import './components/range-slider';

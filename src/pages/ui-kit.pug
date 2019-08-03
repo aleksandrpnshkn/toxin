@@ -6,6 +6,7 @@ include ../components/radio/radio
 include ../components/toggle-input/toggle-input
 include ../components/like-btn/like-btn
 include ../components/rate-btn/rate-btn
+include ../components/range-slider/range-slider
 
 block variables
     -
@@ -16,27 +17,55 @@ block variables
 block content
     h1.title= title
 
-    +field({
-        type: 'email',
-        label: 'Text field',
-        placeholder: 'Email',
-    })
-    +checkbox({
-        label: 'Checkbox',
-        name: 'test',
-    })
-    +radio({
-        name: 'gender',
-        inputs: [
-            {value: 'man', label: 'Мужчина'},
-            {value: 'woman', label: 'Женщина'},
-        ],
-    })
-    +toggleInput({
-        label: 'Toggle button',
-    })
-    +likeBtn(12)
-    +likeBtn(2, true)
-    +likeBtn(3)
-    +rateBtn(4)
-    +rateBtn(2)
+    div
+        +field({
+            type: 'email',
+            label: 'Text field',
+            placeholder: 'Email',
+        })
+
+    div
+        +checkbox({
+            label: 'Checkbox',
+            name: 'test',
+        })
+
+    div
+        +radio({
+            name: 'gender',
+            inputs: [
+                {value: 'man', label: 'Мужчина'},
+                {value: 'woman', label: 'Женщина'},
+            ],
+        })
+    div
+        +toggleInput({
+            label: 'Toggle button',
+        })
+
+    div
+        +likeBtn(12)
+        +likeBtn(2, true)
+        +likeBtn(3)
+
+    div
+        +rateBtn(4)
+        +rateBtn(2)
+
+    div
+        +rangeSlider({
+            label: 'Range Slider',
+            from: 5000,
+            to: 10000,
+            minValue: 6000,
+            maxValue: 7080,
+        })
+
+    div
+        +rangeSlider({
+            label: 'Range Slider',
+            from: 0,
+            to: 245,
+            minValue: 0,
+            maxValue: 0,
+        })

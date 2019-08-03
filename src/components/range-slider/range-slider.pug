@@ -1,0 +1,13 @@
+mixin rangeSlider(params)
+    - const { label, from, to, minValue, maxValue } = params;
+    div.range-slider(
+        data-from=from
+        data-to=to
+        data-min-value=minValue
+        data-max-value=maxValue
+    )
+        label.range-slider__top
+            span.range-slider__label.title.title--label= label
+            input.range-slider__output(type="text" id="amount" readonly)
+
+        div.range-slider__slider
