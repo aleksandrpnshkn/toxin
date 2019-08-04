@@ -56,4 +56,37 @@
             }
         }
     }
+
+    &--link-style {
+        padding: 0;
+        background: none;
+        border: none;
+        color: $color__purple;
+
+        #{$hover} {
+            opacity: 1;
+            color: $color__dark-shade50;
+        }
+    }
+
+    &--arrow {
+        position: relative; // .btn__arrow
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.btn__arrow {
+    display: none;
+
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    transform: translateY(-50%);
+
+    font-size: 24px;
+    line-height: 24px;
+}
+.btn--arrow .btn__arrow {
+    display: block;
 }

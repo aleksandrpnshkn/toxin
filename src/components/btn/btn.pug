@@ -3,21 +3,31 @@ mixin btn(params)
         const { label,
                 type='submit',
                 className='',
-                light, // True if --light
+                light, // true if --light
+                linkStyle, // --link-style
+                arrow, // --arrow
                 href,
                 disabled } = params;
 
+        const lightMod = (light) ? 'btn--light' : '';
+        const linkStyleMod = (linkStyle) ? 'btn--link-style' : '';
+        const arrowMod = (arrow) ? 'btn--arrow' : '';
+
+        const resultClassName = `btn ${className} ${lightMod} ${linkStyleMod} ${arrowMod}`; // all classes
+
     if type === 'link'
         a(
-            class=`btn ${className} ${light ? 'btn--light': ''}`
+            class=resultClassName
             href=href
-            disabled
+            disabled=disabled
         )
             span.btn__label= label
+            i.btn__arrow.material-icons arrow_forward
     else
         button(
-            class=`btn ${className} ${light ? 'btn--light': ''}`
+            class=resultClassName
             type=type
             disabled=disabled
         )
             span.btn__label= label
+            i.btn__arrow.material-icons arrow_forward
