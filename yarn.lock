@@ -3747,12 +3747,19 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
+item-quantity-dropdown@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/item-quantity-dropdown/-/item-quantity-dropdown-2.0.2.tgz#b4ee0b6ede0530c0f9875e876ae75ed4f3fdd1b3"
+  integrity sha512-RTHdxmqOcS2xZSRxno+sJJ42i+GyHpXQuLkXSC9XK8nhEGUxmbktvGXXrA3m4tw/c1FC9qvHoa1S+buyNKeodw==
+  dependencies:
+    jquery "^3.0.0"
+
 jquery-ui@^1.12.1:
   version "1.12.1"
   resolved "https://registry.yarnpkg.com/jquery-ui/-/jquery-ui-1.12.1.tgz#bcb4045c8dd0539c134bc1488cdd3e768a7a9e51"
   integrity sha1-vLQEXI3QU5wTS8FIjN0+dop6nlE=
 
-jquery@^3.4.1:
+jquery@^3.0.0, jquery@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
