@@ -1,0 +1,25 @@
+mixin dropdown(params)
+    - const { separate=false, items, noun, initialSelectionText='' } = params;
+    //- Here is nouns for not separated selection
+    div(
+        class=`dropdown ${separate ? 'dropdown--separate' : ''}`
+        data-noun-one=(!separate && noun.one)
+        data-noun-two=(!separate && noun.two)
+        data-noun-five=(!separate && noun.five)
+        data-initial-selection-text=initialSelectionText
+    )
+        div.iqdropdown
+            p.iqdropdown-selection
+            div.iqdropdown-menu
+                - let i = 0
+                for item in items
+                    - const { label, dataId, noun } = item;
+                    //- Here is nouns for separated selection
+                    div.iqdropdown-menu-option(
+                        data-id=dataId
+                        data-noun-one=(separate && noun.one)
+                        data-noun-two=(separate && noun.two)
+                        data-noun-five=(separate && noun.five)
+                    )
+                        div
+                            p.iqdropdown-item= label

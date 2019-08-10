@@ -10,3 +10,4 @@ import './components/like-btn';
 import './components/rate-btn';
 import './components/range-slider';
 import './components/btn';
+import './components/dropdown';

@@ -8,6 +8,7 @@ include ../components/like-btn/like-btn
 include ../components/rate-btn/rate-btn
 include ../components/range-slider/range-slider
 include ../components/btn/btn
+include ../components/dropdown/dropdown
 
 block variables
     -
@@ -96,4 +97,51 @@ block content
             label: 'Button with arrow',
             type: 'button',
             arrow: true,
+        })
+
+    div
+        +dropdown({
+            separate: true,
+            initialSelectionText: 'Сколько мебели?',
+            items: [{
+                dataId: 'bedroom',
+                label: 'Спальни',
+                noun: {
+                    one: 'спальня',
+                    two: 'спальни',
+                    five: 'спален',
+                },
+            }, {
+                dataId: 'bed',
+                label: 'Кровати',
+                noun: {
+                    one: 'кровать',
+                    two: 'кровати',
+                    five: 'кроватей',
+                },
+            }, {
+                dataId: 'bathroom',
+                label: 'Ванные комнаты',
+                noun: {
+                    one: 'ванная комната',
+                    two: 'ванных комнаты',
+                    five: 'ванных комнат',
+                },
+            }],
+        })
+        +dropdown({
+            separate: false,
+            initialSelectionText: 'Сколько гостей?',
+            noun: {
+                one: 'гость',
+                two: 'гостя',
+                five: 'гостей',
+            },
+            items: [{
+                dataId: 'adult',
+                label: 'Взрослые',
+            }, {
+                dataId: 'child',
+                label: 'Дети',
+            }],
         })
