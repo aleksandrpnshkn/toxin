@@ -11,3 +11,4 @@ import './components/rate-btn';
 import './components/range-slider';
 import './components/btn';
 import './components/dropdown';
+import './components/checkbox-list';

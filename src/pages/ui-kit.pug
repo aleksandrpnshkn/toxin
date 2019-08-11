@@ -9,6 +9,7 @@ include ../components/rate-btn/rate-btn
 include ../components/range-slider/range-slider
 include ../components/btn/btn
 include ../components/dropdown/dropdown
+include ../components/checkbox-list/checkbox-list
 
 block variables
     -
@@ -144,5 +145,35 @@ block content
             }, {
                 dataId: 'child',
                 label: 'Дети',
+            }],
+        })
+
+    div
+        +checkbox-list({
+            title: 'Expandable checkbox list',
+            items: [{
+                label: 'Завтрак',
+                name: 'breakfast',
+            }, {
+                label: 'Письменный стол',
+                name: 'desk',
+            }, {
+                label: 'Стул для кормления',
+                name: 'highchair',
+            }, {
+                label: 'Кроватка',
+                name: 'crib',
+            }, {
+                label: 'Телевизор',
+                name: 'tv',
+            }, {
+                label: 'Шампунь',
+                name: 'shampoo',
+            }, {
+                label: 'Телевизор',
+                name: 'tv',
+            }, {
+                label: 'Шампунь',
+                name: 'shampoo',
             }],
         })

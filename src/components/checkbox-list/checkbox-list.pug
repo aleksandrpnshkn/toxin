@@ -1,0 +1,11 @@
+include ./../checkbox/checkbox
+
+mixin checkbox-list(params)
+    - const { title, items } = params;
+
+    div.checkbox-list
+        p.checkbox-list__title.title.title--label= title
+        ul.checkbox-list__list
+            for item in items
+                li.checkbox-list__item
+                    +checkbox(item)
