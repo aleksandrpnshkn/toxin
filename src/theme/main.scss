@@ -6,10 +6,20 @@
     box-sizing: border-box;
 }
 
-body {
+html {
     font-family: $font__main;
     font-size: 14px;
     line-height: 24px;
+}
+
+body {
+    width: 1200px;
+    margin: 30px auto 400px;
+}
+
+.ui-kit-page {
+    display: grid;
+    grid-gap: 20px;
 }
 
 .visuallyhidden/*:not(:focus):not(:active)*/ {
@@ -49,4 +59,8 @@ body {
         line-height: 15px;
         text-transform: uppercase;
     }
+}
+
+.hidden {
+    display: none;
 }
