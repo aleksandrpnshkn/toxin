@@ -1,10 +1,17 @@
 include ./../checkbox/checkbox
 
 mixin checkbox-list(params)
-    - const { title, items } = params;
+    - const { title, expandable, items } = params;
+    - const expandableMod = expandable ? 'checkbox-list--expandable' : '';
 
-    div.checkbox-list
-        p.checkbox-list__title.title.title--label= title
+    div(
+        class=`checkbox-list ${expandableMod}`
+        aria-expanded='true'
+    )
+        p.checkbox-list__title.title.title--label
+            span= title
+            if (expandable)
+                i.checkbox-list__more-icon.material-icons expand_more
         ul.checkbox-list__list
             for item in items
                 li.checkbox-list__item

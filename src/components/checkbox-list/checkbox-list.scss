@@ -1,3 +1,4 @@
+@import './../../theme/variables';
 @import './../../theme/mixins';
 
 .checkbox-list__list {
@@ -5,8 +6,26 @@
 }
 
 .checkbox-list__title {
+    display: flex;
+    align-items: center;
     margin-top: 0;
     margin-bottom: 18px;
+}
+.checkbox-list--expandable .checkbox-list__title {
+    cursor: pointer;
+}
+
+.checkbox-list__more-icon {
+    margin-left: 30px;
+
+    font-size: 24px;
+    line-height: 1;
+    color: $color__dark-shade50;
+
+    transition: transform .2s;
+}
+.checkbox-list[aria-expanded='true'] .checkbox-list__more-icon {
+    transform: rotate(-180deg);
 }
 
 .checkbox-list__item {
