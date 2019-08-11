@@ -1,5 +1,13 @@
+include ./../btn/btn
+
 mixin dropdown(params)
-    - const { separate=false, items, noun, initialSelectionText='' } = params;
+    -
+        const {
+            separate=false,
+            items,
+            noun,
+            initialSelectionText='',
+            controls=false } = params;
     //- Here is nouns for not separated selection
     div(
         class=`dropdown ${separate ? 'dropdown--separate' : ''}`
@@ -9,17 +17,30 @@ mixin dropdown(params)
         data-initial-selection-text=initialSelectionText
     )
         div.iqdropdown
-            p.iqdropdown-selection
-            div.iqdropdown-menu
+            p.dropdown__selection.iqdropdown-selection
+                p.dropdown__more-icon.material-icons expand_more
+            div.dropdown__menu.iqdropdown-menu
                 - let i = 0
                 for item in items
                     - const { label, dataId, noun } = item;
                     //- Here is nouns for separated selection
-                    div.iqdropdown-menu-option(
+                    div.dropdown__option.iqdropdown-menu-option(
                         data-id=dataId
                         data-noun-one=(separate && noun.one)
                         data-noun-two=(separate && noun.two)
                         data-noun-five=(separate && noun.five)
                     )
                         div
-                            p.iqdropdown-item= label
+                            p.dropdown__item.iqdropdown-item= label
+
+                if controls
+                    div.dropdown__controls
+                        +btn({
+                            linkStyle: true,
+                            label: 'Очистить',
+                        })
+                        div.dropdown__apply-btn
+                            +btn({
+                                linkStyle: true,
+                                label: 'Применить',
+                            })
