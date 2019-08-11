@@ -69,6 +69,10 @@
         }
     }
 
+    &--gray {
+        color: $color__dark-shade50;
+    }
+
     &--arrow {
         position: relative; // .btn__arrow
         width: 100%;
