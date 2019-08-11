@@ -7,6 +7,8 @@
 
 .rate-btn__star {
     @include reset-button();
+
+    cursor: pointer;
 }
 
 .rate-btn__icon {

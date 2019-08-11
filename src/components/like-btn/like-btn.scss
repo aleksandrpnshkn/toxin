@@ -13,6 +13,8 @@
     border: 1px solid $color__dark-shade25;
     border-radius: 10px;
 
+    cursor: pointer;
+
     &--clicked {
         color: $color__purple;
         border-color: $color__purple;
