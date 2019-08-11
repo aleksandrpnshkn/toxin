@@ -27,6 +27,10 @@ const getNounFromAttrs = function(count, $element) {
   return getNoun(count, one, two, five);
 };
 
+const showDefaultSelectionText = function($dropdown) {
+  $('.iqdropdown-selection', $dropdown).text($dropdown.attr('data-initial-selection-text'));
+};
+
 const showSelection = function($dropdown, total) {
   const noun = getNounFromAttrs(total, $dropdown);
   $('.iqdropdown-selection', $dropdown).text(`${total} ${noun}`);
@@ -46,22 +50,33 @@ const showSeparateSelection = function($dropdown, itemId, count) {
   $('.iqdropdown-selection', $dropdown).text(selectionArr.join(', ')); // Set selection text
 };
 
-$('.dropdown').each((idx, dropdown) => {
-  const $dropdown = $(dropdown);
+$('.dropdown').each(function() {
+  const $dropdown = $(this);
+  const $controls = $('.dropdown__controls', $dropdown);
+
   $dropdown.data('count', {}); // Init data object
 
   const isSeparate = $dropdown.hasClass('dropdown--separate');
 
-  $('.iqdropdown', dropdown).iqDropdown({
+  $('.iqdropdown', $dropdown).iqDropdown({
     onChange(itemId, count, total) {
       if (isSeparate) {
         showSeparateSelection($dropdown, itemId, count);
       } else {
         showSelection($dropdown, total);
       }
+
+      if (total) {
+        $('.dropdown__reset-btn', $dropdown).removeClass('hidden');
+      } else {
+        showDefaultSelectionText($dropdown);
+        $('.dropdown__reset-btn', $dropdown).addClass('hidden');
+      }
     },
   });
 
-  // Show selection text
-  $('.iqdropdown-selection', dropdown).text($dropdown.attr('data-initial-selection-text'));
+  // Prevent close if controls is clicked (click handler in item-quantity-dropdown)
+  $controls.click((e) => e.stopPropagation());
+
+  showDefaultSelectionText($dropdown);
 });

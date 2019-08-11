@@ -133,7 +133,8 @@
 
 .dropdown__controls {
     display: flex;
-    margin-top: 20px;
+    margin-top: -15px; // last option item margin-bottom
+    padding-top: 20px; // controls should receive click
 }
 
 .dropdown__apply-btn {

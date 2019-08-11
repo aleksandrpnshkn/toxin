@@ -35,10 +35,12 @@ mixin dropdown(params)
 
                 if controls
                     div.dropdown__controls
-                        +btn({
-                            linkStyle: true,
-                            label: 'Очистить',
-                        })
+                        div.dropdown__reset-btn.hidden
+                            +btn({
+                                linkStyle: true,
+                                gray: true,
+                                label: 'Очистить',
+                            })
                         div.dropdown__apply-btn
                             +btn({
                                 linkStyle: true,
