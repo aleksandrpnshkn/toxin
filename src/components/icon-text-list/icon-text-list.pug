@@ -1,0 +1,9 @@
+mixin icon-text-list(items)
+    ul.icon-text-list
+        for item in items
+            - const { icon, title, description } = item;
+            li.icon-text-list__item
+                i.icon-text-list__icon.material-icons= item.icon
+                div.icon-text-list__text
+                    p.icon-text-list__title= title
+                    p.icon-text-list__description= description

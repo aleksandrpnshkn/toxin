@@ -1,0 +1,38 @@
+@import './../../theme/variables';
+@import './../../theme/mixins';
+
+.icon-text-list {
+    @include reset-list();
+}
+
+.icon-text-list__item {
+    display: flex;
+    padding: 23px 0 17px;
+    border-bottom: 1px solid $color__dark-shade10;
+}
+
+.icon-text-list__icon {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
+
+    font-size: 48px;
+    line-height: 41px;
+
+    @include gradient-color($gradient__primary);
+}
+
+.icon-text-list__text {
+    font-size: 14px;
+    line-height: 24px;
+    color: $color__dark-shade75;
+}
+
+.icon-text-list__title {
+    margin: 0;
+    font-weight: bold;
+}
+
+.icon-text-list__description {
+    margin: 0;
+}

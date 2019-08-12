@@ -11,6 +11,7 @@ include ../components/btn/btn
 include ../components/dropdown/dropdown
 include ../components/checkbox-list/checkbox-list
 include ../components/bullet-list/bullet-list
+include ../components/icon-text-list/icon-text-list
 
 block variables
     -
@@ -196,3 +197,15 @@ block content
                 'Время прибытия — после 13:00, а выезд до 12:00',
             ],
         })
+
+    div
+        +icon-text-list([{
+            icon: 'insert_emoticon',
+            title: 'Комфорт',
+            description: 'Шумопоглощающие стены',
+        }, {
+            icon: 'location_city',
+            title: 'Удобство',
+            description: 'Окно в каждой из спален',
+        }])
+
