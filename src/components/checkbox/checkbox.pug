@@ -6,11 +6,14 @@ mixin checkbox(params)
                 name,
                 className='', // Additional classes for input
                 value,
-                checked,
+                checked=false,
+                description='',
                 disabled=false } = params;
 
-    .checkbox
-        label.checkbox__label(tabindex=0)
+        const richMod = (description) ? 'checkbox--rich' : 'checkbox';
+
+    div(class=`checkbox ${richMod}`)
+        label.checkbox__container(tabindex=0)
             input(
                 class=`checkbox__input visuallyhidden ${className}`
                 type='checkbox'
@@ -23,4 +26,8 @@ mixin checkbox(params)
             span.checkbox__custom-box
                 +icon('checkbox__check-icon fas fa-check')
 
-            =label
+            div.checkbox__text
+                span.checkbox__label= label
+
+                if description
+                    p.checkbox__description= description

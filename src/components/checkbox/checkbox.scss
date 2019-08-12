@@ -1,21 +1,20 @@
 @import './../../theme/variables';
 
-.checkbox {
-
-}
-
-.checkbox__input {
-
+.checkbox__container {
+    display: flex;
+    cursor: pointer;
 }
 
 .checkbox__label {
-    display: flex;
-    align-items: center;
     font-size: 14px;
     line-height: 18px;
-
     color: $color__dark-shade50;
-    cursor: pointer;
+}
+.checkbox--rich .checkbox__label {
+    margin-bottom: 5px;
+
+    font-weight: bold;
+    color: $color__dark-shade75;
 }
 
 .checkbox__custom-box {
@@ -46,4 +45,13 @@
 }
 .checkbox__input:checked + .checkbox__custom-box .checkbox__check-icon {
     display: block;
+}
+
+.checkbox__description {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 14px;
+
+    color: $color__dark-shade50;
 }
