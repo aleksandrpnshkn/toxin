@@ -10,6 +10,7 @@ include ../components/range-slider/range-slider
 include ../components/btn/btn
 include ../components/dropdown/dropdown
 include ../components/checkbox-list/checkbox-list
+include ../components/bullet-list/bullet-list
 
 block variables
     -
@@ -184,4 +185,14 @@ block content
                 label: 'Шампунь',
                 name: 'shampoo',
             }],
+        })
+
+    div
+        +bullet-list({
+            title: 'bullet list',
+            items: [
+                'Нельзя с питомцами',
+                'Без вечеринок и мероприятий',
+                'Время прибытия — после 13:00, а выезд до 12:00',
+            ],
         })

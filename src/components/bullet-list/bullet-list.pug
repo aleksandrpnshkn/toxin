@@ -1,0 +1,9 @@
+mixin bullet-list(params)
+    - const { title, items } = params;
+
+    div.bullet-list
+        p.bullet-list__title.title.title--label= title
+
+        ul.bullet-list__list
+            for item in items
+                li.bullet-list__item= item

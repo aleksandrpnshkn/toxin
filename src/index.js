@@ -12,3 +12,4 @@ import './components/range-slider';
 import './components/btn';
 import './components/dropdown';
 import './components/checkbox-list';
+import './components/bullet-list';

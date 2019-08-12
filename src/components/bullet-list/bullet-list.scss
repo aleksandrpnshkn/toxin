@@ -1,0 +1,34 @@
+@import './../../theme/variables';
+@import './../../theme/mixins';
+
+.bullet-list__list {
+    @include reset-list;
+}
+
+.bullet-list__title {
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.bullet-list__item {
+    display: flex;
+    margin-bottom: 10px;
+
+    color: $color__dark-shade75;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &::before {
+        content: '';
+
+        width: 10px;
+        height: 10px;
+        margin-top: 6px;
+        margin-right: 10px;
+
+        background: $color__dark-shade25;
+        border-radius: 50%;
+    }
+}
