@@ -99,7 +99,7 @@ module.exports = {
       filename: `./${page.replace(/\.pug$/, '.html')}`,
     })),
     new CopyPlugin([
-      { from: `${PATHS.src}/assets`, to: `${PATHS.assets}/assets` },
+      { from: `${PATHS.src}/assets`, to: `${PATHS.assets}` },
     ]),
     new webpack.ProvidePlugin({
       $: 'jquery',
