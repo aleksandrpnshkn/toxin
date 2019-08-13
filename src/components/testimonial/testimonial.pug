@@ -1,0 +1,19 @@
+include ./../like-btn/like-btn
+
+mixin testimonial(params)
+    -
+        const { imageUrl, imageUrlRetina, name, likes, text } = params;
+        const moment = require('moment');
+        moment.locale('ru');
+        const date = moment().to(params.date);
+
+    div.testimonial
+        div.testimonial__left
+            div.testimonial__avatar
+                img(src=imageUrl alt=name srcset=`${imageUrlRetina} 2x`)
+            div.testimonial__likes
+                +likeBtn(likes)
+        div.testimonial__right
+            p.testimonial__name= name
+            p.testimonial__date= date
+            p.testimonial__text= text

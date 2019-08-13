@@ -1,0 +1,50 @@
+@import './../../theme/variables';
+
+.testimonial {
+    display: flex;
+}
+
+.testimonial__left {
+    margin-right: 10px;
+}
+
+.testimonial__avatar {
+    overflow: hidden;
+
+    width: 48px;
+    height: 48px;
+    margin-bottom: 12px;
+
+    border: 2px solid #FFFFFF;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px $color__dark-shade10;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.testimonial__likes {
+    text-align: center;
+}
+
+.testimonial__right {
+    font-size: 14px;
+    line-height: 24px;
+    color: $color__dark-shade75;
+}
+
+.testimonial__name {
+    margin: 0;
+    font-weight: bold;
+}
+
+.testimonial__date {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.testimonial__name {
+    margin: 0;
+}
