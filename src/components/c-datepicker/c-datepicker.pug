@@ -1,0 +1,7 @@
+mixin c-datepicker(param)
+    - const { twoFields } = param;
+    div.c-datepicker(data-two-fields= (twoFields) ? 'true' : 'false')
+        div.c-datepicker__output
+            input.c-datepicker__input(disabled)
+            input.c-datepicker__start(type='text' readonly)
+            input.c-datepicker__end(type='text' readonly)

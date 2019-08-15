@@ -13,6 +13,7 @@ include ../components/checkbox-list/checkbox-list
 include ../components/bullet-list/bullet-list
 include ../components/icon-text-list/icon-text-list
 include ../components/testimonial/testimonial
+include ../components/c-datepicker/c-datepicker
 
 block variables
     -
@@ -220,3 +221,20 @@ block content
             imageUrlRetina: 'assets/img/user1@2x.jpg',
         })
 
+    div
+        +c-datepicker({
+            twoFields: true,
+            fields: [
+                {
+                    label: 'Прибытие',
+                    name: 'arrival',
+                },
+                {
+                    label: 'Выезд',
+                    name: 'departure',
+                },
+            ],
+        })
+        //+c-datepicker({
+        //    date: '2019-08-19',
+        //})

@@ -15,3 +15,4 @@ import './components/checkbox-list';
 import './components/bullet-list';
 import './components/icon-text-list';
 import './components/testimonial';
+import './components/c-datepicker';

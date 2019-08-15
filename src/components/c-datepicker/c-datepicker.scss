@@ -1,0 +1,148 @@
+@import './../../theme/variables';
+
+.c-datepicker {
+
+}
+
+.c-datepicker__output {
+    position: relative;
+
+    max-width: 320px;
+    display: flex;
+}
+
+.c-datepicker__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    background: transparent;
+    border: none;
+}
+
+.c-datepicker__start,
+.c-datepicker__end {
+    width: 150px;
+    padding: 12px 32px 8px 15px;
+
+    background: #fff;
+    border: 1px solid $color__dark-shade25;
+    border-radius: 4px;
+
+    font-size: 14px;
+    line-height: 24px;
+
+    color: $color__dark-shade75;
+}
+
+.c-datepicker__start {
+    margin-right: 20px;
+
+    &:last-child { // if one field
+        margin-right: 0;
+    }
+}
+
+/* air-datepicker */
+
+.datepicker {
+    width: 320px;
+
+    box-shadow: 0 10px 20px $color__dark-shade5;
+}
+
+.datepicker--nav {
+    padding-top: 20px;
+    border-bottom: none;
+}
+
+.datepicker--nav-title {
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 24px;
+    color: $color__dark-shade100;
+
+    i {
+        color: inherit;
+    }
+}
+
+.datepicker--content {
+    padding: 21px;
+}
+
+.datepicker--day-name {
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 15px;
+    text-transform: capitalize;
+    color: $color__purple;
+}
+
+.datepicker--cell-day {
+    position: relative; // Second bg for cells
+    z-index: 0;
+
+    height: 40px;
+
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 15px;
+    color: $color__dark-shade50;
+
+    &.-in-range- {
+        background: none;
+    }
+
+    &.-current- {
+        color: white;
+        background: $gradient__secondary;
+        border-radius: 50%;
+
+        &.-in-range- {
+            color: white;
+        }
+
+        &.-selected- {
+            background: $gradient__primary;
+        }
+    }
+
+    &.-selected- {
+        color: white;
+        background: $gradient__primary;
+        border-radius: 50%;
+    }
+
+    &.-selected-,
+    &.-in-range- {
+        &::before { // Fill free space around circle
+            content: '';
+
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+
+            width: 100%;
+            height: 100%;
+
+            background: $color__dark-shade5;
+        }
+    }
+
+    &.-range-from-::before {
+        border-radius: 50% 0 0 50%;
+    }
+
+    &.-range-to-::before {
+        border-radius: 0 50% 50% 0;
+    }
+
+    &.-other-month- {
+        color: $color__dark-shade25;
+    }
+}

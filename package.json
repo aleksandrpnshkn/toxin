@@ -34,6 +34,7 @@
   "author": "aleksandrpnshkn",
   "license": "MIT",
   "dependencies": {
+    "air-datepicker": "^2.2.3",
     "item-quantity-dropdown": "^2.0.2",
     "jquery": "^3.4.1",
     "jquery-ui": "^1.12.1",
