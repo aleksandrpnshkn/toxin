@@ -7,7 +7,6 @@ $('.checkbox-list--expandable').each(function() {
 
   const toggleCheckbox = function() {
     const isExpanded = $checkbox.attr('aria-expanded') === 'true';
-    console.log(isExpanded, !isExpanded);
     $checkbox.attr('aria-expanded', !isExpanded);
     $checkboxListContent.slideToggle();
   };
