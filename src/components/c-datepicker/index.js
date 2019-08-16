@@ -1,21 +1,16 @@
-import './c-datepicker.scss';
 import 'air-datepicker/dist/js/datepicker.js';
 import 'air-datepicker/dist/css/datepicker.css';
 
-// const showDatepicker = function() {
-//   $datepicker.show();
-// };
-
+import './c-datepicker.scss';
 
 $('.c-datepicker').each(function() {
-  console.log($(this));
-  const $datepickerEl = $('.c-datepicker__input', this);
+  const $datepickerInput = $('.c-datepicker__input', this);
   const $outputFields = $('.c-datepicker__start, .c-datepicker__end', this);
   const $outputStart = $('.c-datepicker__start', this);
   const $outputEnd = $('.c-datepicker__end', this);
 
-  const datepicker = $datepickerEl.datepicker({
-    range: true,
+  const datepicker = $datepickerInput.datepicker({
+    range: $(this).data('twoFields'),
     onSelect(formattedDate, date, inst) {
       const separator = inst.views.days.opts.multipleDatesSeparator;
       const [ firstDate, secondDate ] = formattedDate.split(separator);
@@ -28,21 +23,18 @@ $('.c-datepicker').each(function() {
     if (!datepicker.visible) {
       datepicker.show();
   }});
+
+  const $controls = $('.c-datepicker__controls', this).removeClass('hidden');
+  datepicker.$content.append($controls);
+
+  $controls
+    .find('.c-datepicker__reset')
+    .click(() => datepicker.clear());
+
+  $controls
+    .find('.c-datepicker__apply')
+    .click(() => datepicker.hide());
 });
-//
-//
-//
-// const $datepicker = $('.c-datepicker__input').datepicker({
-//   range: true,
-//   onSelect(formattedDate, date, inst) {
-//     const separator = inst.views.days.opts.multipleDatesSeparator;
-//     const [ firstDate, secondDate ] = formattedDate.split(separator);
-//     $outputStart.val(firstDate);
-//     $outputEnd.val(secondDate);
-//   }
-// }).data('datepicker');
-//
-// const showDatepicker = function() {
-//   $datepicker.show();
-// };
-// $outputFields.on('click focus', showDatepicker);
+
+$('.datepicker--nav-action[data-action="prev"]').append('<i class="material-icons">arrow_back</i>');
+$('.datepicker--nav-action[data-action="next"]').append('<i class="material-icons">arrow_forward</i>');

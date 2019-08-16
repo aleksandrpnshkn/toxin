@@ -11,18 +11,7 @@
     display: flex;
 }
 
-.c-datepicker__input {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-
-    background: transparent;
-    border: none;
-}
-
+.c-datepicker__input,
 .c-datepicker__start,
 .c-datepicker__end {
     width: 150px;
@@ -38,6 +27,18 @@
     color: $color__dark-shade75;
 }
 
+.c-datepicker[data-two-fields='true'] .c-datepicker__input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+
+    background: transparent;
+    border: none;
+}
+
 .c-datepicker__start {
     margin-right: 20px;
 
@@ -46,16 +47,25 @@
     }
 }
 
+.c-datepicker__controls {
+    display: flex;
+    margin-top: 20px;
+}
+
+.c-datepicker__apply {
+    margin-left: auto;
+}
+
 /* air-datepicker */
 
 .datepicker {
     width: 320px;
-
+    font-family: $font__main;
     box-shadow: 0 10px 20px $color__dark-shade5;
 }
 
 .datepicker--nav {
-    padding-top: 20px;
+    padding: 20px 20px 4px;
     border-bottom: none;
 }
 
@@ -82,9 +92,9 @@
     color: $color__purple;
 }
 
-.datepicker--cell-day {
+.datepicker--cell {
     position: relative; // Second bg for cells
-    z-index: 0;
+    z-index: 1; // Default z-index
 
     height: 40px;
 
@@ -92,9 +102,13 @@
     font-size: 12px;
     line-height: 15px;
     color: $color__dark-shade50;
+    border: none;
 
-    &.-in-range- {
-        background: none;
+    &.-focus-,
+    &.-selected- {
+        color: white;
+        background: $gradient__primary;
+        border-radius: 50%;
     }
 
     &.-current- {
@@ -103,23 +117,33 @@
         border-radius: 50%;
 
         &.-in-range- {
-            color: white;
+            color: inherit;
         }
 
-        &.-selected- {
-            background: $gradient__primary;
+        &.-focus-,
+        &.-in-range-,
+        &.-focus-.-in-range- {
+            background: $color__dark-shade10;
+            border-radius: 50%;
         }
     }
 
-    &.-selected- {
-        color: white;
-        background: $gradient__primary;
-        border-radius: 50%;
-    }
-
-    &.-selected-,
+    &.-in-range-.-other-month-,
     &.-in-range- {
-        &::before { // Fill free space around circle
+        background: none;
+        color: inherit;
+        border-radius: 0;
+
+        &.-focus- {
+            background: none;
+        }
+    }
+
+    &.-in-range-.-other-month-,
+    &.-in-range-,
+    &.-range-from-,
+    &.-range-to- {
+        &::before {
             content: '';
 
             position: absolute;
@@ -134,15 +158,61 @@
         }
     }
 
-    &.-range-from-::before {
-        border-radius: 50% 0 0 50%;
+    &.-range-from-,
+    &.-range-from-.-other-month-,
+    &.-range-to-,
+    &.-range-to-.-other-month- {
+        color: white;
+        background: $gradient__primary;
+        border: none;
+        border-radius: 50%;
     }
 
-    &.-range-to-::before {
-        border-radius: 0 50% 50% 0;
+    &.-range-from- {
+        &::before {
+            border-radius: 50% 0 0 50%;
+        }
+
+        // When choosing second date
+        // Bug when try reselect range
+        &.-focus-.-selected-::before {
+            border-radius: 50%;
+        }
+    }
+
+    &.-range-to- {
+        &::before {
+            border-radius: 0 50% 50% 0;
+        }
+    }
+
+
+    &.-selected- {
+        color: #fff;
+        border: none;
+        background: $gradient__primary;
+
+        &.-current- {
+            color: white;
+            background: $gradient__primary;
+        }
+
+        &.-focus- {
+            background: $gradient__primary;
+        }
     }
 
     &.-other-month- {
         color: $color__dark-shade25;
+    }
+}
+
+.datepicker--nav-action {
+    font-size: 24px;
+    line-height: 20px;
+    color: $color__purple;
+
+    > svg {
+        display: none; // Add arrows in JS
     }
 }
