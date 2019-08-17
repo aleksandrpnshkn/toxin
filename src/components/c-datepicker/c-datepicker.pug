@@ -14,14 +14,17 @@ mixin c-datepicker(param)
                     data-range= (range || twoFields) ? 'true' : 'false'
                     data-multiple-dates-separator= (range && !twoFields) ? ' - ' : null
                 )
+                i.c-datepicker__more-icon.material-icons expand_more
 
             if twoFields
                 label.c-datepicker__start-label
                     span.title.title--label= fields[0]
                     input.c-datepicker__start(type='text' value=DEFAULT_VALUE readonly)
+                    i.c-datepicker__more-icon.material-icons expand_more
                 label.c-datepicker__end-label
                     span.title.title--label= fields[1]
                     input.c-datepicker__end(type='text' value=DEFAULT_VALUE readonly)
+                    i.c-datepicker__more-icon.material-icons expand_more
 
         div.c-datepicker__controls.hidden
             div.c-datepicker__reset
