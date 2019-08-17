@@ -223,16 +223,15 @@ block content
 
     div
         +c-datepicker({
+            range: true,
             twoFields: true,
             fields: [
-                {
-                    label: 'Прибытие',
-                    name: 'arrival',
-                },
-                {
-                    label: 'Выезд',
-                    name: 'departure',
-                },
+              'Прибытие',
+              'Выезд',
             ],
+        })
+        +c-datepicker({
+            range: true,
+            label: 'Filter date dropdown',
         })
         +c-datepicker({ label: 'Выберите дату' })

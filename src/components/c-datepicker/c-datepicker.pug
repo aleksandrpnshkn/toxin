@@ -1,16 +1,27 @@
 include ./../btn/btn
 
 mixin c-datepicker(param)
-    - const { twoFields } = param;
+    - const { range, twoFields, label, fields } = param;
     - const DEFAULT_VALUE = 'ДД.ММ.ГГГГ';
 
     div.c-datepicker(data-two-fields= (twoFields) ? 'true' : 'false')
         div.c-datepicker__output
-            input.c-datepicker__input(value=DEFAULT_VALUE disabled=twoFields)
+            label.c-datepicker__input-label
+                span.title.title--label= label
+                input.c-datepicker__input(
+                    value=DEFAULT_VALUE
+                    disabled=twoFields
+                    data-range= (range || twoFields) ? 'true' : 'false'
+                    data-multiple-dates-separator= (range && !twoFields) ? ' - ' : null
+                )
 
             if twoFields
-                input.c-datepicker__start(type='text' value=DEFAULT_VALUE readonly)
-                input.c-datepicker__end(type='text' value=DEFAULT_VALUE readonly)
+                label.c-datepicker__start-label
+                    span.title.title--label= fields[0]
+                    input.c-datepicker__start(type='text' value=DEFAULT_VALUE readonly)
+                label.c-datepicker__end-label
+                    span.title.title--label= fields[1]
+                    input.c-datepicker__end(type='text' value=DEFAULT_VALUE readonly)
 
         div.c-datepicker__controls.hidden
             div.c-datepicker__reset
