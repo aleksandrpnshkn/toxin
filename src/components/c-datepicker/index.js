@@ -9,6 +9,8 @@ $('.c-datepicker').each(function() {
   const $outputStart = $('.c-datepicker__start', this);
   const $outputEnd = $('.c-datepicker__end', this);
 
+  const defaultValue = $datepickerInput.val();
+
   const datepicker = $datepickerInput.datepicker({
     range: $(this).data('twoFields'),
     onSelect(formattedDate, date, inst) {
@@ -29,7 +31,13 @@ $('.c-datepicker').each(function() {
 
   $controls
     .find('.c-datepicker__reset')
-    .click(() => datepicker.clear());
+    .click(() => {
+      datepicker.clear();
+
+      $datepickerInput // Set default value
+        .add($outputFields)
+        .val(defaultValue);
+    });
 
   $controls
     .find('.c-datepicker__apply')
