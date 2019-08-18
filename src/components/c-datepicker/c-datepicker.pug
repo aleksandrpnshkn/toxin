@@ -7,7 +7,7 @@ mixin c-datepicker(param)
     div.c-datepicker(data-two-fields= (twoFields) ? 'true' : 'false')
         div.c-datepicker__output
             label.c-datepicker__input-label
-                span.title.title--label= label
+                p.title.title--label= label
                 input.c-datepicker__input(
                     value=DEFAULT_VALUE
                     disabled=twoFields
@@ -18,11 +18,11 @@ mixin c-datepicker(param)
 
             if twoFields
                 label.c-datepicker__start-label
-                    span.title.title--label= fields[0]
+                    p.title.title--label= fields[0]
                     input.c-datepicker__start(type='text' value=DEFAULT_VALUE readonly)
                     i.c-datepicker__more-icon.material-icons expand_more
                 label.c-datepicker__end-label
-                    span.title.title--label= fields[1]
+                    p.title.title--label= fields[1]
                     input.c-datepicker__end(type='text' value=DEFAULT_VALUE readonly)
                     i.c-datepicker__more-icon.material-icons expand_more
 
