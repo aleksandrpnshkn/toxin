@@ -1,0 +1,21 @@
+include ./../dropdown/dropdown
+
+mixin dropdown-guests()
+    +dropdown({
+      separate: false,
+      initialSelectionText: 'Сколько гостей?',
+      controls: true,
+      label: 'Гости',
+      noun: {
+        one: 'гость',
+        two: 'гостя',
+        five: 'гостей',
+      },
+      items: [{
+        dataId: 'adult',
+        label: 'Взрослые',
+      }, {
+        dataId: 'child',
+        label: 'Дети',
+      }],
+    })

@@ -1,5 +1,5 @@
 include ./../c-datepicker/c-datepicker
-include ./../dropdown/dropdown
+include ./../dropdown-guests/dropdown-guests
 include ./../btn/btn
 
 mixin pick-room-card(title)
@@ -17,24 +17,7 @@ mixin pick-room-card(title)
               ],
             })
         div.pick-room-card__guests
-            +dropdown({
-              separate: false,
-              initialSelectionText: 'Сколько гостей?',
-              controls: true,
-              label: 'Гости',
-              noun: {
-                one: 'гость',
-                two: 'гостя',
-                five: 'гостей',
-              },
-              items: [{
-                dataId: 'adult',
-                label: 'Взрослые',
-              }, {
-                dataId: 'child',
-                label: 'Дети',
-              }],
-            })
+            +dropdown-guests()
         div.pick-room-card__submit
             +btn({
               label: 'Подобрать номер',
