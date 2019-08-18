@@ -4,6 +4,7 @@ mixin dropdown(params)
     -
         const {
             separate=false,
+            label,
             items,
             noun,
             initialSelectionText='',
@@ -16,6 +17,7 @@ mixin dropdown(params)
         data-noun-five=(!separate && noun.five)
         data-initial-selection-text=initialSelectionText
     )
+        p.dropdown__title.title.title--label= label
         div.iqdropdown
             p.dropdown__selection.iqdropdown-selection
                 p.dropdown__more-icon.material-icons expand_more
