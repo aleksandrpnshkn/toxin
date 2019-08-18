@@ -1,0 +1,12 @@
+@import './../../theme/variables';
+
+.card {
+    box-sizing: border-box;
+    width: 380px;
+    padding: 40px 30px 30px;
+
+    background: #FFFFFF;
+    border: 1px solid $color__card-border;
+    border-radius: 4px;
+    box-shadow: $shadow__dark;
+}

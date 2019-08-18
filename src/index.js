@@ -16,3 +16,5 @@ import './components/bullet-list';
 import './components/icon-text-list';
 import './components/testimonial';
 import './components/c-datepicker';
+import './components/card';
+import './components/pick-room-card';

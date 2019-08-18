@@ -14,6 +14,7 @@ include ../components/bullet-list/bullet-list
 include ../components/icon-text-list/icon-text-list
 include ../components/testimonial/testimonial
 include ../components/c-datepicker/c-datepicker
+include ../components/pick-room-card/pick-room-card
 
 block variables
     -
@@ -235,3 +236,6 @@ block content
             label: 'Filter date dropdown',
         })
         +c-datepicker({ label: 'Выберите дату' })
+
+    div
+        +pick-room-card()

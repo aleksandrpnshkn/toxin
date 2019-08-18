@@ -1,0 +1,42 @@
+include ./../c-datepicker/c-datepicker
+include ./../dropdown/dropdown
+include ./../btn/btn
+
+mixin pick-room-card(title)
+    - title = title || 'Найдем номера под ваши пожелания';
+
+    div.pick-room-card.card
+        h2.pick-room-card__title.title= title
+        div.pick-room-card__date
+            +c-datepicker({
+              range: true,
+              twoFields: true,
+              fields: [
+                'Прибытие',
+                'Выезд',
+              ],
+            })
+        div.pick-room-card__guests
+            +dropdown({
+              separate: false,
+              initialSelectionText: 'Сколько гостей?',
+              controls: true,
+              label: 'Гости',
+              noun: {
+                one: 'гость',
+                two: 'гостя',
+                five: 'гостей',
+              },
+              items: [{
+                dataId: 'adult',
+                label: 'Взрослые',
+              }, {
+                dataId: 'child',
+                label: 'Дети',
+              }],
+            })
+        div.pick-room-card__submit
+            +btn({
+              label: 'Подобрать номер',
+              arrow: true,
+            })

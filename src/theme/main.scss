@@ -40,6 +40,8 @@ body {
 
 // TODO вынести отдельно
 .title { // Subsection or widget
+    margin-top: 0;
+
     font-family: $font__titles;
     font-weight: bold;
     font-size: 24px;
@@ -54,6 +56,8 @@ body {
     &--3,
     &--cta,
     &--label { // Label or CTA text
+        margin-bottom: 5px;
+
         font-family: $font__main;
         font-size: 12px;
         line-height: 15px;
