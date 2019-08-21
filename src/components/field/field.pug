@@ -1,14 +1,14 @@
 //- Input for text/number/email/password/
 mixin field(params)
     -
-        const { label,
-                name,
-                type='text',
-                placeholder,
-                className='', // Additional classes for input
-                value,
-                disabled=false } = params;
-        const id = `${type}-${name}`;
+        const {
+            label,
+            nameAttr,
+            type='text',
+            placeholder,
+            value,
+            disabled=false,
+        } = params;
 
     case type
         when 'password'
@@ -16,15 +16,15 @@ mixin field(params)
         when 'email'
         when 'text'
             .field
-                label.field__label(for=id)= label
-                input(
-                    class=`field__input ${className}`
-                    type=type
-                    name=name
-                    placeholder=placeholder
-                    value=value
-                    disabled=disabled
-                )
+                label.field__container
+                    p.field__label.title.title--label= label
+                    input.field__input(
+                        type=type
+                        name=nameAttr
+                        placeholder=placeholder || label
+                        value=value
+                        disabled=disabled
+                    )
 
         default
             p This field type is not defined in this component
