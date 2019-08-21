@@ -63,6 +63,10 @@ body {
         line-height: 15px;
         text-transform: uppercase;
     }
+
+    &--label { // With margin does not get a click between label and field
+        padding-bottom: 5px;
+    }
 }
 
 .hidden {
