@@ -1,0 +1,10 @@
+mixin room-info(params)
+    - const { number, type, price } = params;
+    - const { numberWithSpaces } = require('./../utils');
+
+    div.room-info
+        h2.room-info__number.title= number
+        span.room-info__type= type
+        span.room-info__price
+            span.room-info__price-value= numberWithSpaces(price)
+            |  в сутки

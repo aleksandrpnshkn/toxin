@@ -1,6 +1,7 @@
 include ./../btn/btn
 include ./../dropdown-guests/dropdown-guests
 include ./../price-list/price-list
+include ./../room-info/room-info
 
 mixin book-room-card(params)
     -
@@ -16,11 +17,11 @@ mixin book-room-card(params)
 
     div.book-room-card.card
         div.book-room-card__room-info
-            h2.book-room-card__room-number.title= roomNumber
-            span.book-room-card__room-type= roomType
-            span.book-room-card__room-price
-                span.book-room-card__room-price-value= numberWithSpaces(roomPrice)
-                |  в сутки
+            +room-info({
+              number: roomNumber,
+              type: roomType,
+              price: roomPrice,
+            })
         div.book-room-card__date
             +c-datepicker({
               range: true,

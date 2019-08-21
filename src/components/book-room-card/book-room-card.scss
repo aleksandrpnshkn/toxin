@@ -1,47 +1,6 @@
 @import './../../theme/variables';
 @import './../../theme/mixins';
 
-.book-room-card__room-info {
-    display: flex;
-    align-items: baseline;
-    margin-bottom: 20px;
-}
-
-.book-room-card__room-number {
-    margin-right: 5px;
-    margin-bottom: 0;
-
-    &::before {
-        content: '№ ';
-        font-size: 14px;
-    }
-}
-
-.book-room-card__room-type {
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 15px;
-    text-transform: uppercase;
-    color: $color__purple;
-}
-
-.book-room-card__room-price {
-    margin-left: auto;
-
-    font-size: 14px;
-    line-height: 18px;
-    color: $color__dark-shade50;
-}
-
-.book-room-card__room-price-value {
-    font-size: 16px;
-    font-weight: bold;
-
-    &::after {
-        content: '₽';
-    }
-}
-
 .book-room-card__guests,
 .book-room-card__date {
     margin-bottom: 20px;
