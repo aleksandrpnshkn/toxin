@@ -2,7 +2,9 @@
 
 .btn {
     position: relative; // btn__label
-    padding: 14px 20px;
+
+    display: inline-block;
+    padding: 0;
 
     font-family: $font__main;
     font-weight: bold;
@@ -12,9 +14,9 @@
     text-decoration: none;
     color: #FFFFFF;
 
-    background: $gradient__primary;
+    background: none;
     border: none;
-    border-radius: 22px;
+    border-radius: 0;
 
     cursor: pointer;
 
@@ -23,45 +25,49 @@
     }
 
     &--light {
-        position: relative; // ::before
-
-        padding: 12px 18px;
+        position: relative; // .btn__content::before (border)
+        z-index: 0;
 
         color: $color__purple;
-        background: white;
-        background-clip: padding-box;
 
-        border: 2px solid transparent;
+        .btn__content {
+            padding: 12px 18px;
 
-        &::before { // Gradient background
-            content: '';
+            background: white;
+            background-clip: padding-box;
 
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            z-index: -1;
+            &::before { // Gradient border
+                content: '';
 
-            width: calc(100% + 4px);
-            height: calc(100% + 4px);
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                z-index: -1;
 
-            background: $gradient__primary;
-            border-radius: 22px;
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+
+                background: $gradient__primary;
+                border-radius: 22px;
+            }
         }
 
         #{$hover} {
             opacity: 1;
 
-            &::before {
+            .btn__content::before {
                 opacity: .5;
             }
         }
     }
 
     &--link-style {
-        padding: 0;
-        background: none;
-        border: none;
         color: $color__purple;
+
+        .btn__content {
+            padding: 0;
+            background: none;
+        }
 
         #{$hover} {
             opacity: 1;
@@ -78,6 +84,13 @@
         width: 100%;
         text-align: center;
     }
+}
+
+.btn__content { // additional container for z-index
+    padding: 14px 20px;
+
+    background: $gradient__primary;
+    border-radius: 22px;
 }
 
 .btn__arrow {

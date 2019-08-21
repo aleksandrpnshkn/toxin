@@ -18,6 +18,11 @@ mixin btn(params)
 
         const resultClassName = `btn ${lightMod} ${linkStyleMod} ${blockArrowMod} ${grayMod}`; // all classes
 
+    mixin btnContent(label)
+        div.btn__content
+            span.btn__label= label
+            i.btn__arrow.material-icons arrow_forward
+
     if href
         a(
             class=resultClassName
@@ -25,13 +30,11 @@ mixin btn(params)
             disabled=disabled
             role="button"
         )
-            span.btn__label= label
-            i.btn__arrow.material-icons arrow_forward
+            +btnContent(label)
     else
         button(
             class=resultClassName
             type=type
             disabled=disabled
         )
-            span.btn__label= label
-            i.btn__arrow.material-icons arrow_forward
+            +btnContent(label)
