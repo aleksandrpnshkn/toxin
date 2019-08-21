@@ -1,3 +1,5 @@
+@import './variables';
+
 //noinspection CssInvalidPropertyValue
 @mixin gradient-color($gradient) {
     @supports (background-clip: text) or (-webkit-background-clip: text) {
@@ -18,8 +20,13 @@
     text-align: center;
     color: inherit;
 
-    background-color: transparent;
+    background: none;
     border: none;
+
+    #{$hover} {
+        background: none;
+        border: none;
+    }
 }
 
 @mixin reset-list() {
