@@ -1,0 +1,23 @@
+include ./../room-info/room-info
+include ./../rate-btn/rate-btn
+
+mixin room-info-card(params)
+    - const { number, type, price, photos, reviewsCount } = params;
+    - const { getNoun } = require('./../utils');
+    div.room-info-card
+        div.room-info-card__carousel
+            for photoName in photos
+                div.room-info-card__slide
+                    img(
+                        src=`assets/img/${photoName}.jpg`
+                        srcset=`assets/img/${photoName}@2x.jpg 2x`
+                        alt=`Комната №${number}`
+                    )
+        div.room-info-card__info
+            div.room-info-card__room-info
+                +room-info({number, type, price})
+            div.room-info-card__rating
+                +rateBtn(4)
+                p.room-info-card__reviews-count
+                    span.room-info-card__reviews-count-value= reviewsCount + ' '
+                    = getNoun(reviewsCount, 'Отзыв', 'Отзыва', 'Отзывов')

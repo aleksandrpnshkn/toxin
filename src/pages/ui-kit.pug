@@ -18,6 +18,7 @@ include ../components/pick-room-card/pick-room-card
 include ../components/book-room-card/book-room-card
 include ../components/register-form/register-form
 include ../components/login-form/login-form
+include ../components/room-info-card/room-info-card
 
 block variables
     -
@@ -266,3 +267,15 @@ block content
 
     div
         +login-form()
+
+    div
+        +room-info-card({
+            number: 888,
+            type: 'Люкс',
+            price: 9990,
+            photos: [
+              'room1',
+              'room2',
+            ],
+            reviewsCount: 145,
+        })

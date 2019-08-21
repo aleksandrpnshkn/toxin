@@ -1,0 +1,91 @@
+@import './../../theme/variables';
+@import './../../theme/mixins';
+
+.room-info-card {
+    width: 270px;
+
+    background: white;
+    box-shadow: $shadow__light;
+    border-radius: 4px;
+}
+
+.room-info-card__slide {
+    overflow: hidden;
+    width: 270px;
+    height: 152px;
+    border-radius: 4px 4px 0 0;
+}
+
+.room-info-card__info {
+    padding: 20px;
+}
+
+.room-info-card__room-info {
+    padding-bottom: 10px;
+    border-bottom: 1px solid $color__dark-shade10;
+}
+
+.room-info-card__rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: $color__dark-shade50;
+}
+
+.room-info-card__reviews-count-value {
+    font-weight: bold;
+}
+
+// Carousel
+
+.room-info-card {
+    position: relative; // dots
+
+    .slick-dots {
+        @include reset-list();
+        position: absolute;
+        top: 114px;
+        right: 16px;
+
+        li {
+            //position: relative;
+            display: inline-block;
+            //width: 8px;
+            //height: 8px;
+            margin-left: 4px;
+            cursor: pointer;
+        }
+
+        li button {
+            @include reset-button();
+
+            font-size: 0;
+            line-height: 0;
+            //display: block;
+            width: 8px;
+            height: 8px;
+            padding: 2px;
+            cursor: pointer;
+            color: transparent;
+            //border: 0;
+            //outline: none;
+            background: transparent;
+            border: 1px solid white;
+            box-shadow: 0 5px 5px 0 $color__dark-shade25;
+            border-radius: 50%;
+
+            #{$hover} {
+                border: 1px solid white;
+                background: white;
+            }
+        }
+
+        .slick-active button {
+            background: white;
+        }
+    }
+}

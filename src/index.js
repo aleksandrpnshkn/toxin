@@ -24,3 +24,4 @@ import './components/room-info';
 import './components/book-room-card';
 import './components/register-form';
 import './components/login-form';
+import './components/room-info-card';
