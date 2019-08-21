@@ -1,18 +1,17 @@
 mixin radio(params)
     -
-        const { name,
-              inputs,
-              checked,
-              className='', // Additional classes for input
-              disabled } = params;
+        const {
+            name,
+            inputs,
+        } = params;
 
     each input in inputs
-        - const { value, label } = input;
+        - const { value, label, checked, disabled } = input;
 
         .radio
             label.radio__label
                 input.radio__input(
-                    class=`radio__input visuallyhidden ${className}`
+                    class=`radio__input visuallyhidden`
                     type='radio',
                     name=name,
                     value=value,
