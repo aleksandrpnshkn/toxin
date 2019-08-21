@@ -1,0 +1,38 @@
+@import './../../theme/variables';
+@import './../../theme/mixins';
+
+.price-list {
+    @include reset-list();
+
+    font-size: 14px;
+    line-height: 24px;
+    color: $color__dark-shade75;
+}
+
+.price-list__item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.price-list__name {
+    position: relative; // description tooltip
+    width: 240px;
+    padding-right: 25px; // description tooltip
+}
+
+.price-list__description-tooltip {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.price-list__price {
+    &::after {
+        content: '₽';
+    }
+}

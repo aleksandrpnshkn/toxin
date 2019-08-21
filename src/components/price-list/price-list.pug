@@ -1,0 +1,15 @@
+include ./../info-tooltip/info-tooltip
+
+mixin price-list(items)
+    - const { numberWithSpaces } = require('./../utils');
+
+    ul.price-list
+        for service in items
+            - const { name, price, description } = service;
+
+            li.price-list__item
+                span.price-list__name= name
+                    if description
+                        div.price-list__description-tooltip
+                            +info-tooltip(description)
+                span.price-list__price= numberWithSpaces(price)
