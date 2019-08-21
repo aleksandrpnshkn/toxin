@@ -22,3 +22,4 @@ import './components/info-tooltip';
 import './components/price-list';
 import './components/book-room-card';
 import './components/register-form';
+import './components/login-form';
