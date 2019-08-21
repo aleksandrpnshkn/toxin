@@ -8,6 +8,7 @@ mixin field(params)
             placeholder,
             value,
             disabled=false,
+            hideLabel,
         } = params;
 
     case type
@@ -17,7 +18,7 @@ mixin field(params)
         when 'text'
             .field
                 label.field__container
-                    p.field__label.title.title--label= label
+                    p(class=`title title--label ${hideLabel ? 'visuallyhidden' : ''}`)= label
                     input.field__input(
                         type=type
                         name=nameAttr
