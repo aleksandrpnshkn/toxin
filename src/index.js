@@ -21,3 +21,4 @@ import './components/pick-room-card';
 import './components/info-tooltip';
 import './components/price-list';
 import './components/book-room-card';
+import './components/register-form';

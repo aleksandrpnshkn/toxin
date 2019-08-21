@@ -1,0 +1,67 @@
+include ./../field/field
+include ./../radio/radio
+include ./../c-datepicker/c-datepicker
+include ./../toggle-input/toggle-input
+include ./../btn/btn
+
+mixin register-form()
+    div.register-form.card
+        h2.title Регистрация аккаунта
+        form
+            div.register-form__name.register-form__field
+                +field({
+                  label: 'Имя',
+                  hideLabel: true,
+                  nameAttr: 'name',
+                })
+            div.register-form__surname.register-form__field
+                +field({
+                  label: 'Фамилия',
+                  hideLabel: 'true',
+                  nameAttr: 'surname',
+                })
+            div.register-form__gender
+                +radio({
+                  name: 'gender',
+                  inputs: [{
+                    label: 'Мужчина',
+                    value: 'male',
+                    checked: true,
+                  }, {
+                    label: 'Женщина',
+                    value: 'female'
+                  }],
+                })
+            div.register-form__birthday
+                +c-datepicker({ label: 'Дата рождения' })
+            div.register-form__login-data
+                //- Заменить на fieldset с legend?
+                h3.title.title--label Данные для входа в сервис
+                div.register-form__email.register-form__field
+                    +field({
+                      label: 'Email',
+                      hideLabel: true,
+                      nameAttr: 'email',
+                      type: 'email',
+                    })
+                div.register-form__password.register-form__field
+                    +field({
+                      label: 'Пароль',
+                      hideLabel: true,
+                      nameAttr: 'password',
+                      type: 'password',
+                    })
+            div.register-form__subscribe
+                +toggleInput({ label: 'Получать спецпредложения' })
+            div.register-form__submit
+                +btn({
+                  label: 'Перейти к оплате',
+                  blockArrow: true,
+                })
+            div.register-form__login
+                p Уже есть аккаунт на Toxin
+                +btn({
+                  label: 'Войти',
+                  type: 'button',
+                  light: true,
+                })

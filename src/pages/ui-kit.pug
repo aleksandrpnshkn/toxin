@@ -16,6 +16,7 @@ include ../components/testimonial/testimonial
 include ../components/c-datepicker/c-datepicker
 include ../components/pick-room-card/pick-room-card
 include ../components/book-room-card/book-room-card
+include ../components/register-form/register-form
 
 block variables
     -
@@ -94,13 +95,11 @@ block content
         +btn({
             label: 'Light button',
             type: 'button',
-            className: 'test',
             light: true,
         })
         +btn({
             label: 'Link button',
             href: '/ui-kit.html',
-            type: 'link',
         })
         +btn({
             label: 'Link style',
@@ -110,7 +109,7 @@ block content
         +btn({
             label: 'Button with arrow',
             type: 'button',
-            arrow: true,
+            blockArrow: true,
         })
 
     div
@@ -260,3 +259,6 @@ block content
             description: 'Lorem ipsum',
           }],
         })
+
+    div
+        +register-form()

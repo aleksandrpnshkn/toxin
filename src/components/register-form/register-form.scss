@@ -1,0 +1,38 @@
+.register-form__field {
+    margin-bottom: 10px;
+}
+
+.register-form__birthday {
+    margin-bottom: 20px;
+}
+
+.register-form__gender {
+    display: flex;
+    margin-bottom: 20px;
+
+    .radio {
+        margin-right: 20px;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.register-form__subscribe {
+    margin-bottom: 24px;
+}
+
+.register-form__submit {
+    margin-bottom: 30px;
+}
+
+.register-form__login {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > p {
+        margin: 0;
+    }
+}
