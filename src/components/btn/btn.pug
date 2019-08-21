@@ -1,27 +1,29 @@
 mixin btn(params)
     -
-        const { label,
-                type='submit',
-                className='',
-                light=false, // true if --light
-                gray=false, // --gray
-                linkStyle=false, // --link-style
-                arrow=false, // --arrow
-                href,
-                disabled } = params;
+        const {
+            label,
+            type='submit',
+            light=false, // true if --light
+            linkStyle=false, // --link-style
+            gray=false, // --gray
+            blockArrow=false, // --block-arrow
+            href, // if you want <a> instead of <button>
+            disabled,
+        } = params;
 
         const lightMod = (light) ? 'btn--light' : '';
         const linkStyleMod = (linkStyle) ? 'btn--link-style' : '';
-        const arrowMod = (arrow) ? 'btn--arrow' : '';
-        const grayMod = (gray) ? 'btn--gray' : '';
+        const grayMod = (linkStyle && gray) ? 'btn--gray' : '';
+        const blockArrowMod = (blockArrow) ? 'btn--block-arrow' : '';
 
-        const resultClassName = `btn ${className} ${lightMod} ${linkStyleMod} ${arrowMod} ${grayMod}`; // all classes
+        const resultClassName = `btn ${lightMod} ${linkStyleMod} ${blockArrowMod} ${grayMod}`; // all classes
 
-    if type === 'link'
+    if href
         a(
             class=resultClassName
             href=href
             disabled=disabled
+            role="button"
         )
             span.btn__label= label
             i.btn__arrow.material-icons arrow_forward

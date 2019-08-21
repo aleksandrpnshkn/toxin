@@ -73,7 +73,7 @@
         color: $color__dark-shade50;
     }
 
-    &--arrow {
+    &--block-arrow {
         position: relative; // .btn__arrow
         width: 100%;
         text-align: center;
@@ -91,6 +91,6 @@
     font-size: 24px;
     line-height: 24px;
 }
-.btn--arrow .btn__arrow {
+.btn--block-arrow .btn__arrow {
     display: block;
 }
