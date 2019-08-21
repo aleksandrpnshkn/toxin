@@ -1,0 +1,34 @@
+@import './../../theme/variables';
+@import './../../theme/mixins';
+
+.info-tooltip {
+    @include reset-button();
+
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+    color: $color__dark-shade25;
+
+    border: 1px solid $color__dark-shade25;
+    border-radius: 50%;
+    cursor: help;
+
+    #{$hover} {
+        color: white;
+        background: $color__dark-shade25;
+        border: 1px solid transparent;
+    }
+}
+
+.ui-tooltip-content { // description tooltip
+    padding: 4px 10px;
+    background: white;
+    box-shadow: $shadow__dark;
+    border-radius: 4px;
+    color: $color__dark-shade75;
+}
