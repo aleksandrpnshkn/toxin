@@ -23,3 +23,6 @@ $hover: '&:hover, &:focus, &:active';
 
 $shadow__light: 0px 10px 20px $color__dark-shade5;
 $shadow__dark: 0px 0px 25px rgba(0, 0, 0, 0.2);
+
+$media__tablet: '(min-width: 768px)';
+$media__desktop: '(min-width: 1200px)';
