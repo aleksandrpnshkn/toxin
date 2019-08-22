@@ -7,12 +7,16 @@ mixin login-form()
                   label: 'Email',
                   hideLabel: true,
                   type: 'email',
+                  nameAttr: 'email',
+                  autocomplete: 'username',
                 })
             div.login-form__password
                 +field({
                   label: 'Пароль',
                   hideLabel: true,
                   type: 'password',
+                  nameAttr: 'password',
+                  autocomplete: 'current-password',
                 })
             div.login-form__subscribe
                 +btn({

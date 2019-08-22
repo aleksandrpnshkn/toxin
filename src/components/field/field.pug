@@ -9,6 +9,7 @@ mixin field(params)
             value,
             disabled=false,
             hideLabel,
+            autocomplete,
         } = params;
 
     case type
@@ -25,6 +26,7 @@ mixin field(params)
                         placeholder=placeholder || label
                         value=value
                         disabled=disabled
+                        autocomplete=(typeof autocomplete === 'undefined') ? 'true' : autocomplete
                     )
 
         default

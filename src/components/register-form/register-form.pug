@@ -43,6 +43,7 @@ mixin register-form()
                       hideLabel: true,
                       nameAttr: 'email',
                       type: 'email',
+                      autocomplete: 'username',
                     })
                 div.register-form__password.register-form__field
                     +field({
@@ -50,6 +51,7 @@ mixin register-form()
                       hideLabel: true,
                       nameAttr: 'password',
                       type: 'password',
+                      autocomplete: 'new-password',
                     })
             div.register-form__subscribe
                 +toggleInput({ label: 'Получать спецпредложения' })
