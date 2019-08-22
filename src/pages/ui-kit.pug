@@ -19,6 +19,7 @@ include ../components/book-room-card/book-room-card
 include ../components/register-form/register-form
 include ../components/login-form/login-form
 include ../components/room-info-card/room-info-card
+include ../components/navbar/navbar
 
 block variables
     -
@@ -242,7 +243,7 @@ block content
     div
         +pick-room-card()
 
-    div
+    div.container
         +book-room-card({
           roomNumber: 888,
           roomType: 'Люкс',
@@ -278,4 +279,67 @@ block content
               'room2',
             ],
             reviewsCount: 145,
+        })
+
+    div
+        +navbar({
+            isLoggedIn: true,
+            userName: 'Cosmin Negoita',
+            menuItems: [{
+                label: 'Home',
+                href: '#',
+                isActive: true,
+            }, {
+                label: 'About Us',
+                href: '#',
+            }, {
+              label: 'Services',
+              href: '#',
+              submenu: [{
+                label: 'Test',
+                href: '#',
+              }, {
+                label: 'Test',
+                href: '#',
+              }],
+            }, {
+              label: 'Careers',
+              href: '#',
+            }, {
+              label: 'News',
+              href: '#',
+            }, {
+              label: 'Documentation',
+              href: '#',
+            }],
+        })
+        +navbar({
+          isLoggedIn: false,
+          menuItems: [{
+            label: 'Home',
+            href: '#',
+            isActive: true,
+          }, {
+            label: 'About Us',
+            href: '#',
+          }, {
+            label: 'Services',
+            href: '#',
+            submenu: [{
+              label: 'Test',
+              href: '#',
+            }, {
+              label: 'Test',
+              href: '#',
+            }],
+          }, {
+            label: 'Careers',
+            href: '#',
+          }, {
+            label: 'News',
+            href: '#',
+          }, {
+            label: 'Documentation',
+            href: '#',
+          }],
         })

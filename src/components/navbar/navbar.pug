@@ -1,0 +1,43 @@
+mixin navbar(params)
+    - const { isLoggedIn, menuItems, userName } = params;
+    - const { baseUrl } = require('./../config');
+
+    header.navbar
+        div.navbar__container.container
+            div.navbar__brand
+                a.navbar__brand-link(href=baseUrl)
+                    span.visuallyhidden Главная страница
+                    img.navbar__logo(src=`${baseUrl}assets/img/logo.svg` alt='Toxin logo')
+
+            nav.navbar__menu(aria-expanded="true")
+                ul.navbar__menu-list
+                    each menuItem in menuItems
+                        - const { label, href, isActive, submenu } = menuItem;
+                        - const activeMod = (isActive) ? 'navbar__menu-item--active' : '';
+
+                        li(class=`navbar__menu-item ${activeMod}`)
+                            a.navbar__menu-link(href=href)= label
+
+                            if submenu
+                                ul.navbar__submenu
+
+                                    each submenuItem in submenu
+                                        - const { label, href } = submenu;
+
+                                        li.navbar__submenu-item
+                                            a.navbar__submenu-link(href=href)= label
+
+            if isLoggedIn
+                div.navbar__user.navbar__user--is-logged-in
+                    span.navbar__username= userName
+            else
+                div.navbar__user
+                    +btn({
+                      label: 'Login',
+                      light: true,
+                      type: 'button',
+                    })
+                    +btn({
+                      label: 'register',
+                      type: 'button',
+                    })
