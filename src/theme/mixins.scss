@@ -34,3 +34,45 @@
     padding: 0;
     list-style: none;
 }
+
+@mixin reset-link {
+    color: inherit;
+    text-decoration: none;
+    border: 0;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:focus,
+    &:active {
+        color: inherit;
+    }
+}
+
+@mixin set-active-color($active_clr) {
+    &:hover,
+    &:focus,
+    &:active {
+        color: $active_clr;
+        text-decoration: transparent;
+    }
+}
+
+// Set colors for link
+@mixin set-link-color($clr, $active_clr) {
+    color: $clr;
+    text-decoration-color: $clr;
+
+    &:link,
+    &:visited {
+        color: $clr;
+        text-decoration-color: $clr;
+    }
+
+    @media #{$media__tablet} {
+        transition-property: color, text-decoration-color;
+        transition-duration: 0.1s;
+    }
+
+    @include set-active-color($active_clr);
+}
