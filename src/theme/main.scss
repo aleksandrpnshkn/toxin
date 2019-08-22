@@ -13,13 +13,14 @@ html {
 }
 
 body {
-    width: 1200px;
+    //width: 1200px;
     margin: 30px auto 400px;
 }
 
 .ui-kit-page {
-    display: grid;
-    grid-gap: 20px;
+    > div {
+        margin-bottom: 30px;
+    }
 }
 
 .visuallyhidden/*:not(:focus):not(:active)*/ {
@@ -71,4 +72,21 @@ body {
 
 .hidden {
     display: none;
+}
+
+.container {
+    max-width: 1060px;
+    width: auto;
+    margin-left: 8px;
+    margin-right: 8px;
+
+    @media #{$media__tablet} {
+        margin-left: 24px;
+        margin-right: 24px;
+    }
+
+    @media #{$media__desktop} {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
