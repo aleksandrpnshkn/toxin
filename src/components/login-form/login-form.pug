@@ -1,27 +1,28 @@
 mixin login-form()
     div.login-form.card
         h2.title Войти
-        div.login-form__email
-            +field({
-              label: 'Email',
-              hideLabel: true,
-              type: 'email',
-            })
-        div.login-form__password
-            +field({
-              label: 'Пароль',
-              hideLabel: true,
-              type: 'password',
-            })
-        div.login-form__subscribe
-            +btn({
-              label: 'Войти',
-              blockArrow: true,
-            })
-        div.login-form__register
-            span Нет аккаунта на Toxin?
-            +btn({
-              label: 'Создать',
-              type: 'button',
-              light: true,
-            })
+        form
+            div.login-form__email
+                +field({
+                  label: 'Email',
+                  hideLabel: true,
+                  type: 'email',
+                })
+            div.login-form__password
+                +field({
+                  label: 'Пароль',
+                  hideLabel: true,
+                  type: 'password',
+                })
+            div.login-form__subscribe
+                +btn({
+                  label: 'Войти',
+                  blockArrow: true,
+                })
+            div.login-form__register
+                span Нет аккаунта на Toxin?
+                +btn({
+                  label: 'Создать',
+                  type: 'button',
+                  light: true,
+                })
