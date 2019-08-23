@@ -20,6 +20,7 @@ include ../components/register-form/register-form
 include ../components/login-form/login-form
 include ../components/room-info-card/room-info-card
 include ../components/navbar/navbar
+include ../components/site-footer/site-footer
 
 block variables
     -
@@ -122,76 +123,42 @@ block content
             items: [{
                 dataId: 'bedroom',
                 label: 'Спальни',
-                noun: {
-                    one: 'спальня',
-                    two: 'спальни',
-                    five: 'спален',
-                },
+                noun: { one: 'спальня', two: 'спальни', five: 'спален' },
             }, {
                 dataId: 'bed',
                 label: 'Кровати',
-                noun: {
-                    one: 'кровать',
-                    two: 'кровати',
-                    five: 'кроватей',
-                },
+                noun: { one: 'кровать', two: 'кровати', five: 'кроватей' },
             }, {
                 dataId: 'bathroom',
                 label: 'Ванные комнаты',
-                noun: {
-                    one: 'ванная комната',
-                    two: 'ванных комнаты',
-                    five: 'ванных комнат',
-                },
+                noun: { one: 'ванная комната', two: 'ванных комнаты', five: 'ванных комнат' },
             }],
         })
         +dropdown({
             separate: false,
             initialSelectionText: 'Сколько гостей?',
             controls: true,
-            noun: {
-                one: 'гость',
-                two: 'гостя',
-                five: 'гостей',
-            },
-            items: [{
-                dataId: 'adult',
-                label: 'Взрослые',
-            }, {
-                dataId: 'child',
-                label: 'Дети',
-            }],
+            noun: { one: 'гость', two: 'гостя', five: 'гостей' },
+            items: [
+                { dataId: 'adult', label: 'Взрослые' },
+                { dataId: 'child', label: 'Дети' },
+            ],
         })
 
     div
         +checkbox-list({
             title: 'Expandable checkbox list',
             expandable: true,
-            items: [{
-                label: 'Завтрак',
-                name: 'breakfast',
-            }, {
-                label: 'Письменный стол',
-                name: 'desk',
-            }, {
-                label: 'Стул для кормления',
-                name: 'highchair',
-            }, {
-                label: 'Кроватка',
-                name: 'crib',
-            }, {
-                label: 'Телевизор',
-                name: 'tv',
-            }, {
-                label: 'Шампунь',
-                name: 'shampoo',
-            }, {
-                label: 'Телевизор',
-                name: 'tv',
-            }, {
-                label: 'Шампунь',
-                name: 'shampoo',
-            }],
+            items: [
+                { label: 'Завтрак', name: 'breakfast' },
+                { label: 'Письменный стол', name: 'desk' },
+                { label: 'Стул для кормления', name: 'highchair' },
+                { label: 'Кроватка', name: 'crib' },
+                { label: 'Телевизор', name: 'tv' },
+                { label: 'Шампунь', name: 'shampoo' },
+                { label: 'Телевизор', name: 'tv' },
+                { label: 'Шампунь', name: 'shampoo' }
+            ],
         })
 
     div
@@ -274,10 +241,7 @@ block content
             number: 888,
             type: 'Люкс',
             price: 9990,
-            photos: [
-              'room1',
-              'room2',
-            ],
+            photos: ['room1', 'room2'],
             reviewsCount: 145,
         })
 
@@ -285,61 +249,35 @@ block content
         +navbar({
             isLoggedIn: true,
             userName: 'Cosmin Negoita',
-            menuItems: [{
-                label: 'Home',
-                href: '#',
-                isActive: true,
-            }, {
-                label: 'About Us',
-                href: '#',
-            }, {
-              label: 'Services',
-              href: '#',
-              submenu: [{
-                label: 'Test',
-                href: '#',
-              }, {
-                label: 'Test',
-                href: '#',
-              }],
-            }, {
-              label: 'Careers',
-              href: '#',
-            }, {
-              label: 'News',
-              href: '#',
-            }, {
-              label: 'Documentation',
-              href: '#',
-            }],
+            menuItems: [
+                {label: 'Home', href: '#', isActive: true},
+                {label: 'About Us', href: '#',},
+                {label: 'Services', href: '#'},
+                {label: 'Careers', href: '#'},
+                {label: 'News', href: '#'},
+                {label: 'Documentation', href: '#'}
+            ],
         })
+    div
         +navbar({
-          isLoggedIn: false,
-          menuItems: [{
-            label: 'Home',
-            href: '#',
-            isActive: true,
-          }, {
-            label: 'About Us',
-            href: '#',
-          }, {
-            label: 'Services',
-            href: '#',
-            submenu: [{
-              label: 'Test',
-              href: '#',
-            }, {
-              label: 'Test',
-              href: '#',
-            }],
-          }, {
-            label: 'Careers',
-            href: '#',
-          }, {
-            label: 'News',
-            href: '#',
-          }, {
-            label: 'Documentation',
-            href: '#',
-          }],
+            isLoggedIn: false,
+            menuItems: [
+                { label: 'Home', href: '#', isActive: true },
+                { label: 'About Us', href: '#' },
+                {
+                    label: 'Services',
+                    href: '#',
+                    submenu: [
+                        { label: 'Test', href: '#' },
+                        { label: 'Test', href: '#' }
+                    ],
+                },
+                { label: 'Careers', href: '#' },
+                { label: 'News', href: '#' },
+                { label: 'Documentation', href: '#' }
+            ],
         })
+    div
+        +site-footer()
+    div
+        +site-footer({light: true})

@@ -26,3 +26,5 @@ import './components/register-form';
 import './components/login-form';
 import './components/room-info-card';
 import './components/navbar';
+import './components/site-footer';
+import './components/socials';

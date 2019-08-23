@@ -1,0 +1,64 @@
+include ./../field/field
+include ./../socials/socials
+
+mixin site-footer(params)
+    - const { light } = params || {};
+    - const { baseUrl } = require('./../config');
+    - const lightMod = (light) ? 'site-footer--light' : '';
+
+    footer(class=`site-footer ${lightMod}`)
+            div.site-footer__container.container
+                div.site-footer__about
+                    div.site-footer__logo
+                        a(href=baseUrl)
+                            img(src=`${baseUrl}assets/img/logo.svg` alt='Toxin logo')
+
+                    div.site-footer__description Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.
+
+                nav.site-footer__menu
+                    div
+                        h3.site-footer__menu-title.title.title--cta Navigation
+                        ul.site-footer__menu-list
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') About Us
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') News
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Support
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Products
+                    div
+                        h3.site-footer__menu-title.title.title--cta About Us
+                        ul.site-footer__menu-list
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Who we are
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Our team
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Careers
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Investors
+                    div
+                        h3.site-footer__menu-title.title.title--cta Support
+                        ul.site-footer__menu-list
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Documentation
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Community
+                            li.site-footer__menu-item
+                                a.site-footer__menu-link(href='#') Get in Touch
+
+                label.site-footer__newsletter
+                    h3.site-footer__newsletter-title.title.title--cta Subscribe to our newsletter
+                    p.site-footer__newsletter-text Receive our latest news and promotions in your inbox!
+                    +field({
+                      type: 'email',
+                      label: 'Your email address',
+                      hideLabel: true,
+                      arrow: true,
+                    })
+
+            div.site-footer__bottom
+                div.site-footer__bottom-container.container
+                    p.site-footer__copyright Copyright © 2018 Toxin UI Kit. All rights reserved.
+                    +socials()
