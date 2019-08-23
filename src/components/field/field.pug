@@ -10,6 +10,7 @@ mixin field(params)
             disabled=false,
             hideLabel,
             autocomplete,
+            masked,
         } = params;
 
     case type
@@ -27,6 +28,7 @@ mixin field(params)
                         value=value
                         disabled=disabled
                         autocomplete=(typeof autocomplete === 'undefined') ? 'true' : autocomplete
+                        data-masked=masked
                     )
 
         default

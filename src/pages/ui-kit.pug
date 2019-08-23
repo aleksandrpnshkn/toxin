@@ -39,6 +39,21 @@ block content
         })
 
     div
+        +field({
+          type: 'email',
+          label: 'Subscription text field',
+          placeholder: 'Email',
+          arrowIcon: true,
+        })
+
+    div
+        +field({
+          label: 'Masked text field',
+          masked: 'date',
+          placeholder: 'ДД.ММ.ГГГГ',
+        })
+
+    div
         +checkbox({
             label: 'Checkbox',
             name: 'test',
