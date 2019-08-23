@@ -11,14 +11,16 @@ mixin field(params)
             hideLabel,
             autocomplete,
             masked,
+            arrowIcon,
         } = params;
+    - const arrowIconMod = (arrowIcon) ? 'field--arrow-icon' : '';
 
     case type
         when 'password'
         when 'number'
         when 'email'
         when 'text'
-            .field
+            div(class=`field ${arrowIconMod}`)
                 label.field__container
                     p(class=`title title--label ${hideLabel ? 'visuallyhidden' : ''}`)= label
                     input.field__input(
@@ -30,6 +32,7 @@ mixin field(params)
                         autocomplete=(typeof autocomplete === 'undefined') ? 'true' : autocomplete
                         data-masked=masked
                     )
+                    i.field__arrow-icon.material-icons arrow_forward
 
         default
             p This field type is not defined in this component

@@ -1,7 +1,20 @@
 @import './../../theme/variables';
+@import './../../theme/mixins';
 
 .field {
+    &--arrow-icon {
+        .field__input {
+            padding-right: 44px;
+        }
 
+        .field__arrow-icon {
+            display: inline-block;
+        }
+    }
+}
+
+.field__container {
+    position: relative; // arrow icon
 }
 
 .field__input {
@@ -23,4 +36,15 @@
     #{$hover} {
         border: 1px solid $color__dark-shade50;
     }
+}
+
+.field__arrow-icon {
+    @include gradient-color($gradient__primary);
+
+    position: absolute;
+    right: 12px;
+    bottom: -2px;
+
+    display: none;
+    font-size: 24px;
 }
