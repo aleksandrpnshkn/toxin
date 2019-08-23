@@ -21,6 +21,7 @@ include ../components/login-form/login-form
 include ../components/room-info-card/room-info-card
 include ../components/navbar/navbar
 include ../components/site-footer/site-footer
+include ../components/pagination/pagination
 
 block variables
     -
@@ -159,6 +160,9 @@ block content
                 { dataId: 'child', label: 'Дети' },
             ],
         })
+
+    div
+        +pagination({ pagesCount: 12, activePage: 2 })
 
     div
         +checkbox-list({

@@ -1,0 +1,19 @@
+mixin pagination()
+    nav.pagination(aria-label="pagination")
+        li.pagination__control.pagination__item(style='display:none')
+            a.pagination__link(type='button' rel='prev')
+                i.pagination__arrow-icon.material-icons arrow_back
+        li.pagination__item.pagination__item--active
+            a.pagination__link(aria-current="page" aria-disabled="true") 1
+        li.pagination__item
+            a.pagination__link 2
+        li.pagination__item
+            a.pagination__link 3
+        li.pagination__item
+            a.pagination__link ...
+        li.pagination__item
+            a.pagination__link 15
+        li.pagination__control.pagination__item
+            a.pagination__link(rel='next')
+                i.pagination__arrow-icon.material-icons arrow_forward
+

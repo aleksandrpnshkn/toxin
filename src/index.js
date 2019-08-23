@@ -28,3 +28,4 @@ import './components/room-info-card';
 import './components/navbar';
 import './components/site-footer';
 import './components/socials';
+import './components/pagination';

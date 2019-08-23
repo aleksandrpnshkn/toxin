@@ -1,0 +1,49 @@
+@import './../../theme/variables';
+@import './../../theme/mixins';
+
+.pagination {
+    display: flex;
+}
+
+.pagination__item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+
+    font-size: 12px;
+    line-height: 15px;
+    color: $color__dark-shade50;
+
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+
+    #{$hover} {
+        font-weight: bold;
+    }
+
+    &--active {
+        font-weight: bold;
+        color: white;
+
+        background: $gradient__primary;
+        cursor: auto;
+    }
+}
+
+.pagination__control {
+    color: white;
+    background: $gradient__secondary;
+
+    #{$hover} {
+        opacity: 0.8;
+    }
+}
+
+.pagination__link {
+    &[aria-disabled='true'] {
+        cursor: default;
+    }
+}
