@@ -9,13 +9,17 @@
 .dropdown {
     // Important for overriding specificity of rules in item-quantity-dropdown
     .iqdropdown {
-        padding: 10px 15px 6px !important;
+        height: auto !important;
+        padding: 10px 15px !important;
 
         border: 1px solid $color__dark-shade25 !important;
-        border-radius: 2px 2px 0 0 !important;
+        border-radius: 2px !important;
+
+        transition: border-color .2s;
 
         #{$hover},
         &.menu-open {
+            border-radius: 2px 2px 0 0 !important;
             border-color: $color__dark-shade50 !important;
         }
     }
@@ -30,12 +34,10 @@
         }
     }
 
-    .dropdown__more-icon {
-        display: block !important;
-    }
-
     .dropdown__menu {
-        padding: 7px 14px 14px;
+        top: calc(100% + 2px) !important;
+
+        padding: 7px 14px 14px !important;
         box-shadow: none !important;
 
         border: 1px solid $color__dark-shade50 !important;
@@ -129,6 +131,10 @@
 
         border: none !important;
     }
+}
+
+.dropdown__more-icon {
+    transform: translateX(6px);
 }
 
 .dropdown__controls {
