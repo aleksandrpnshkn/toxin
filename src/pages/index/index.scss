@@ -1,0 +1,12 @@
+@import './../../theme/variables';
+
+.home-page__bg {
+    background-image: url('home-bg.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media #{$media__desktop} {
+        background-image: url('home-bg@2x.jpg');
+    }
+}

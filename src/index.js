@@ -30,4 +30,5 @@ import './components/site-footer';
 import './components/socials';
 import './components/pagination';
 
-import './pages/ui-kit.scss';
+import './pages/ui-kit';
+import './pages/index';

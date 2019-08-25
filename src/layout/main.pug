@@ -1,3 +1,6 @@
+include ./../components/site-footer/site-footer
+include ./../components/navbar/navbar
+
 block variables
 
 doctype html
@@ -16,4 +19,32 @@ html(lang="ru")
 
         title= title
     body(class=pageClass)
-        block content
+        +navbar({
+          isLoggedIn: false,
+          menuItems: [
+            {label: 'О нас', href: '#'},
+            {
+              label: 'Услуги',
+              href: '#',
+              submenu: [
+                {label: 'Test', href: '#'},
+                {label: 'Test', href: '#'}
+              ]
+            },
+            {label: 'Вакансии', href: '#'},
+            {label: 'Новости', href: '#'},
+            {
+              label: 'Соглашения',
+              href: '#',
+              submenu: [
+                {label: 'Test', href: '#'},
+                {label: 'Test', href: '#'}
+              ],
+            },
+          ],
+        })
+
+        main
+            block content
+
+        +site-footer()

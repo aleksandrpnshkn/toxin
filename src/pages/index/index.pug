@@ -1,0 +1,15 @@
+extends ../../layout/main
+
+include ../../components/pick-room-card/pick-room-card
+
+block variables
+    - const title = 'Homepage | Toxin';
+    - const description = 'Page description';
+    - const pageClass = 'home-page';
+
+block content
+    div.home-page__bg
+        div.home-page__container.container
+            h1.home-page__note Лучшие номера для вашей работы, отдыха и просто вдохновения
+
+            +pick-room-card('Найдём номера под ваши пожелания')
