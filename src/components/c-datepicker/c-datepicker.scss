@@ -8,12 +8,25 @@
     position: relative;
 
     max-width: 320px;
-    display: flex;
+
+    @media #{$media__tablet} {
+        display: flex;
+    }
+}
+
+.c-datepicker__start {
+    margin-bottom: 10px;
+
+    @media #{$media__tablet} {
+        margin-bottom: 0;
+    }
 }
 
 .c-datepicker__start,
 .c-datepicker__end {
-    width: 150px;
+    @media #{$media__tablet} {
+        width: 150px;
+    }
 }
 
 .c-datepicker__input,
@@ -59,6 +72,9 @@
     font-size: 24px;
     line-height: 24px;
     color: $color__dark-shade50;
+}
+.c-datepicker[data-two-fields='true'] .c-datepicker__more-icon {
+    display: none;
 }
 
 .c-datepicker__controls {
