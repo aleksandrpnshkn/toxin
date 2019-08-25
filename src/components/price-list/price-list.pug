@@ -1,7 +1,7 @@
 include ./../info-tooltip/info-tooltip
 
 mixin price-list(items)
-    - const { numberWithSpaces } = require('./../utils');
+    - const { numberWithSpaces } = require('./../../utils');
 
     ul.price-list
         for service in items

@@ -1,6 +1,8 @@
+include ./../btn/btn
+
 mixin navbar(params)
     - const { isLoggedIn, menuItems, userName } = params;
-    - const { baseUrl } = require('./../config');
+    - const { baseUrl } = require('./../../config');
 
     header.navbar
         div.navbar__container.container
