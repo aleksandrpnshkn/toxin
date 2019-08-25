@@ -2,6 +2,7 @@ import 'air-datepicker/dist/js/datepicker.js';
 import 'air-datepicker/dist/css/datepicker.css';
 
 import './c-datepicker.scss';
+import './../field/field.scss'; // .field__input
 
 $('.c-datepicker').each(function() {
   const $datepickerInput = $('.c-datepicker__input', this);
