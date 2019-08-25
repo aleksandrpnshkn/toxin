@@ -1,14 +1,14 @@
 @import './../../theme/variables';
 
-.testimonial {
+.review {
     display: flex;
 }
 
-.testimonial__left {
+.review__left {
     margin-right: 10px;
 }
 
-.testimonial__avatar {
+.review__avatar {
     overflow: hidden;
 
     width: 48px;
@@ -25,26 +25,26 @@
     }
 }
 
-.testimonial__likes {
+.review__likes {
     text-align: center;
 }
 
-.testimonial__right {
+.review__right {
     font-size: 14px;
     line-height: 24px;
     color: $color__dark-shade75;
 }
 
-.testimonial__name {
+.review__name {
     margin: 0;
     font-weight: bold;
 }
 
-.testimonial__date {
+.review__date {
     margin-top: 0;
     margin-bottom: 10px;
 }
 
-.testimonial__name {
+.review__name {
     margin: 0;
 }
