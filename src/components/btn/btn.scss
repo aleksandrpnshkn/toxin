@@ -17,8 +17,9 @@
     background: none;
     border: none;
     border-radius: 0;
-
     cursor: pointer;
+
+    transition: all .1s;
 
     #{$hover} {
         opacity: .5;

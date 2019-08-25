@@ -26,6 +26,8 @@
     border-radius: 50%;
     cursor: pointer;
 
+    transition: font-weight .1s;
+
     #{$hover} {
         font-weight: bold;
     }
@@ -42,6 +44,8 @@
 .pagination__control {
     color: white;
     background: $gradient__secondary;
+
+    transition: opacity .2s;
 
     #{$hover} {
         opacity: 0.8;

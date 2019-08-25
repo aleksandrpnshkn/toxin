@@ -12,8 +12,9 @@
     background: transparent;
     border: 1px solid $color__dark-shade25;
     border-radius: 10px;
-
     cursor: pointer;
+
+    transition: all .1s;
 
     &--clicked {
         color: $color__purple;
