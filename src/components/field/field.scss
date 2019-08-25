@@ -29,12 +29,14 @@
     border: 1px solid $color__dark-shade25;
     border-radius: 4px;
 
+    transition: border-color .2s;
+
     &::placeholder {
         color: $color__dark-shade25;
     }
 
     #{$hover} {
-        border: 1px solid $color__dark-shade50;
+        border-color: $color__dark-shade50;
     }
 }
 
