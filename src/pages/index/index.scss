@@ -10,3 +10,22 @@
         background-image: url('home-bg@2x.jpg');
     }
 }
+
+.home-page__container {
+    position: relative; // title
+    padding: 70px 0 386px;
+}
+
+.home-page__title {
+    position: absolute;
+    right: 0;
+    bottom: 18px;
+
+    margin: 0;
+
+    width: 297px;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: right;
+}
