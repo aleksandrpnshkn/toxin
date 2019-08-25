@@ -14,7 +14,7 @@ import './components/dropdown';
 import './components/checkbox-list';
 import './components/bullet-list';
 import './components/icon-text-list';
-import './components/testimonial';
+import './components/review';
 import './components/c-datepicker';
 import './components/card';
 import './components/pick-room-card';
@@ -29,3 +29,5 @@ import './components/navbar';
 import './components/site-footer';
 import './components/socials';
 import './components/pagination';
+
+import './pages/ui-kit.scss';

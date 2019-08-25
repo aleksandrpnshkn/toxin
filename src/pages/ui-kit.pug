@@ -12,7 +12,7 @@ include ../components/dropdown/dropdown
 include ../components/checkbox-list/checkbox-list
 include ../components/bullet-list/bullet-list
 include ../components/icon-text-list/icon-text-list
-include ../components/testimonial/testimonial
+include ../components/review/review
 include ../components/c-datepicker/c-datepicker
 include ../components/pick-room-card/pick-room-card
 include ../components/book-room-card/book-room-card
@@ -30,241 +30,280 @@ block variables
         const pageClass = 'ui-kit-page';
 
 block content
-    h1.title= title
+    div.ui-kit-page__form-elements.container
+        h1.ui-kit-page__title.title= title
 
-    div
-        +field({
-            type: 'email',
-            label: 'Text field',
-            placeholder: 'Email',
-        })
+        div.ui-kit-page__row
+            div.ui-kit-page__col
+                div
+                    +field({
+                      type: 'email',
+                      label: 'Text field',
+                      placeholder: 'Email',
+                    })
 
-    div
-        +field({
-          type: 'email',
-          label: 'Subscription text field',
-          placeholder: 'Email',
-          arrowIcon: true,
-        })
+                div
+                    +field({
+                      type: 'email',
+                      label: 'Subscription text field',
+                      placeholder: 'Email',
+                      arrowIcon: true,
+                    })
 
-    div
-        +field({
-          label: 'Masked text field',
-          masked: 'date',
-          placeholder: 'ДД.ММ.ГГГГ',
-        })
+                div
+                    +field({
+                      label: 'Masked text field',
+                      masked: 'date',
+                      placeholder: 'ДД.ММ.ГГГГ',
+                    })
 
-    div
-        +checkbox({
-            label: 'Checkbox',
-            name: 'test',
-        })
+                div
+                    +c-datepicker({
+                      range: true,
+                      twoFields: true,
+                      fields: [
+                        'Прибытие',
+                        'Выезд',
+                      ],
+                    })
 
-    div
-        +checkbox({
-            label: 'Checkbox',
-            name: 'test',
-            description: 'testtest',
-        })
+                div
+                    +c-datepicker({
+                      range: true,
+                      label: 'Filter date dropdown',
+                    })
 
-    div
-        +radio({
-            name: 'gender',
-            inputs: [
-                {value: 'man', label: 'Мужчина'},
-                {value: 'woman', label: 'Женщина'},
-            ],
-        })
-    div
-        +toggleInput({
-            label: 'Toggle button',
-        })
+                div
+                    +c-datepicker({label: 'Выберите дату'})
 
-    div
-        +likeBtn(12)
-        +likeBtn(2, true)
-        +likeBtn(3)
+                div
+                    p.title.title--3 Rich checkbox buttons
+                    +checkbox({
+                      label: 'Широкий коридор',
+                      name: 'test',
+                      description: 'Ширина коридоров в номере не менее 91 см.',
+                    })
+                    +checkbox({
+                      label: 'Помощник для инвалидов',
+                      name: 'test2',
+                      description: 'На 1 этаже вас встретит специалист  и проводит до номера.',
+                    })
 
-    div
-        +rateBtn(4)
-        +rateBtn(2)
+            div.ui-kit-page__col
+                div
+                    p.title.title--3 Checkbox Buttons
+                    +checkbox({
+                        label: 'Можно курить',
+                        name: 'test1',
+                    })
+                    +checkbox({
+                      label: 'Можно с питомцами',
+                      name: 'test2',
+                      checked: true,
+                    })
+                    +checkbox({
+                      label: 'Можно пригласить гостей (до 10 человек)',
+                      name: 'test3',
+                      checked: true,
+                    })
 
-    div
-        +rangeSlider({
-            label: 'Range Slider',
-            from: 5000,
-            to: 10000,
-            minValue: 6000,
-            maxValue: 7080,
-        })
+                div
+                    p.title.title--3 Radio Buttons
+                    +radio({
+                      name: 'gender',
+                      inputs: [
+                        {value: 'man', label: 'Мужчина'},
+                        {value: 'woman', label: 'Женщина'},
+                      ],
+                    })
 
-    div
-        +rangeSlider({
-            label: 'Range Slider',
-            from: 0,
-            to: 245,
-            minValue: 0,
-            maxValue: 0,
-        })
+                div
+                    p.title.title--3 Toggle
+                    +toggleInput({
+                      label: 'Получать спецпредложения',
+                    })
 
-    div
-        +btn({
-            label: 'Button',
-            type: 'button',
-        })
-        +btn({
-            label: 'Light button',
-            type: 'button',
-            light: true,
-        })
-        +btn({
-            label: 'Link button',
-            href: '/ui-kit.html',
-        })
-        +btn({
-            label: 'Link style',
-            type: 'button',
-            linkStyle: true,
-        })
-        +btn({
-            label: 'Button with arrow',
-            type: 'button',
-            blockArrow: true,
-        })
+                div
+                    p.title.title--3 Like button
+                    +likeBtn(2)
+                    +likeBtn(12, true)
 
-    div
-        +dropdown({
-            separate: true,
-            initialSelectionText: 'Сколько мебели?',
-            items: [{
-                dataId: 'bedroom',
-                label: 'Спальни',
-                noun: { one: 'спальня', two: 'спальни', five: 'спален' },
-            }, {
-                dataId: 'bed',
-                label: 'Кровати',
-                noun: { one: 'кровать', two: 'кровати', five: 'кроватей' },
-            }, {
-                dataId: 'bathroom',
-                label: 'Ванные комнаты',
-                noun: { one: 'ванная комната', two: 'ванных комнаты', five: 'ванных комнат' },
-            }],
-        })
-        +dropdown({
-            separate: false,
-            initialSelectionText: 'Сколько гостей?',
-            controls: true,
-            noun: { one: 'гость', two: 'гостя', five: 'гостей' },
-            items: [
-                { dataId: 'adult', label: 'Взрослые' },
-                { dataId: 'child', label: 'Дети' },
-            ],
-        })
+                div
+                    p.title.title--3 Rate button
+                    +rateBtn(4)
+                    br
+                    +rateBtn(5)
 
-    div
-        +pagination({ pagesCount: 12, activePage: 2 })
+                div
+                    +bullet-list({
+                      title: 'Bullet list',
+                      items: [
+                        'Нельзя с питомцами',
+                        'Без вечеринок и мероприятий',
+                        'Время прибытия — после 13:00, а выезд до 12:00',
+                      ],
+                    })
 
-    div
-        +checkbox-list({
-            title: 'Expandable checkbox list',
-            expandable: true,
-            items: [
-                { label: 'Завтрак', name: 'breakfast' },
-                { label: 'Письменный стол', name: 'desk' },
-                { label: 'Стул для кормления', name: 'highchair' },
-                { label: 'Кроватка', name: 'crib' },
-                { label: 'Телевизор', name: 'tv' },
-                { label: 'Шампунь', name: 'shampoo' },
-                { label: 'Телевизор', name: 'tv' },
-                { label: 'Шампунь', name: 'shampoo' }
-            ],
-        })
+            div.ui-kit-page__col
+                div
+                    +rangeSlider({
+                      label: 'Range Slider',
+                      from: 0,
+                      to: 20000,
+                      minValue: 5000,
+                      maxValue: 10000,
+                    })
 
-    div
-        +bullet-list({
-            title: 'bullet list',
-            items: [
-                'Нельзя с питомцами',
-                'Без вечеринок и мероприятий',
-                'Время прибытия — после 13:00, а выезд до 12:00',
-            ],
-        })
+                div
+                    p.title.title--3 Buttons
+                    +btn({
+                      label: 'Button',
+                      type: 'button',
+                    })
+                    br
+                    +btn({
+                      label: 'Light button',
+                      type: 'button',
+                      light: true,
+                    })
+                    br
+                    +btn({
+                      label: 'Link',
+                      href: '/ui-kit.html',
+                    })
+                    br
+                    +btn({
+                      label: 'Link style button',
+                      type: 'button',
+                      linkStyle: true,
+                    })
+                    br
+                    +btn({
+                      label: 'Link style button',
+                      type: 'button',
+                      linkStyle: true,
+                      gray: true,
+                    })
+                    br
+                    +btn({
+                      label: 'Block button with arrow',
+                      type: 'button',
+                      blockArrow: true,
+                    })
 
-    div
-        +icon-text-list([{
-            icon: 'insert_emoticon',
-            title: 'Комфорт',
-            description: 'Шумопоглощающие стены',
-        }, {
-            icon: 'location_city',
-            title: 'Удобство',
-            description: 'Окно в каждой из спален',
-        }])
+                div
+                    p.title.title--3 Pagination
+                    +pagination({ pagesCount: 12, activePage: 2 })
 
-    div
-        +testimonial({
-            name: 'Имярек',
-            date: '2019-08-11',
-            text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
-            likes: 12,
-            imageUrl: 'assets/img/user1.jpg',
-            imageUrlRetina: 'assets/img/user1@2x.jpg',
-        })
+                div
+                    +dropdown({
+                      separate: true,
+                      initialSelectionText: 'Сколько мебели?',
+                      items: [{
+                        dataId: 'bedroom',
+                        label: 'Спальни',
+                        noun: {one: 'спальня', two: 'спальни', five: 'спален'},
+                      }, {
+                        dataId: 'bed',
+                        label: 'Кровати',
+                        noun: {one: 'кровать', two: 'кровати', five: 'кроватей'},
+                      }, {
+                        dataId: 'bathroom',
+                        label: 'Ванные комнаты',
+                        noun: {one: 'ванная комната', two: 'ванных комнаты', five: 'ванных комнат'},
+                      }],
+                    })
 
-    div
-        +c-datepicker({
-            range: true,
-            twoFields: true,
-            fields: [
-              'Прибытие',
-              'Выезд',
-            ],
-        })
-        +c-datepicker({
-            range: true,
-            label: 'Filter date dropdown',
-        })
-        +c-datepicker({ label: 'Выберите дату' })
+                div
+                    +dropdown({
+                      separate: false,
+                      initialSelectionText: 'Сколько гостей?',
+                      controls: true,
+                      noun: {one: 'гость', two: 'гостя', five: 'гостей'},
+                      items: [
+                        {dataId: 'adult', label: 'Взрослые'},
+                        {dataId: 'child', label: 'Дети'},
+                      ],
+                    })
 
-    div
-        +pick-room-card()
+                div
+                    +checkbox-list({
+                      title: 'Expandable checkbox list',
+                      expandable: true,
+                      items: [
+                        {label: 'Завтрак', name: 'breakfast'},
+                        {label: 'Письменный стол', name: 'desk'},
+                        {label: 'Стул для кормления', name: 'highchair'},
+                        {label: 'Кроватка', name: 'crib'},
+                        {label: 'Телевизор', name: 'tv'},
+                        {label: 'Шампунь', name: 'shampoo'},
+                        {label: 'Телевизор', name: 'tv'},
+                        {label: 'Шампунь', name: 'shampoo'}
+                      ],
+                    })
 
-    div.container
-        +book-room-card({
-          roomNumber: 888,
-          roomType: 'Люкс',
-          roomPrice: 9990,
-          total: 38081,
-          priceList: [{
-            name:  '9 990₽ х 4 суток',
-            price: 39960,
-          }, {
-            name:  'Сбор за услуги: скидка 2 179₽',
-            price: 0,
-            description: 'Lorem ipsum',
-          }, {
-            name: 'Сбор за дополнительные услуги',
-            price: 300,
-            description: 'Lorem ipsum',
-          }],
-        })
+                div
+                    +icon-text-list([{
+                      icon: 'insert_emoticon',
+                      title: 'Комфорт',
+                      description: 'Шумопоглощающие стены',
+                    }, {
+                      icon: 'location_city',
+                      title: 'Удобство',
+                      description: 'Окно в каждой из спален',
+                    }])
 
-    div
-        +register-form()
+        div
+            +review({
+              name: 'Имярек',
+              date: '2019-08-11',
+              text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+              likes: 12,
+              imageUrl: 'assets/img/user1.jpg',
+              imageUrlRetina: 'assets/img/user1@2x.jpg',
+            })
 
-    div
-        +login-form()
+    div.ui-kit-page__cards
+        div.ui-kit-page__cards-container.container
+            +pick-room-card()
+            +register-form()
+            +book-room-card({
+              roomNumber: 888,
+              roomType: 'Люкс',
+              roomPrice: 9990,
+              total: 38081,
+              priceList: [{
+                name:  '9 990₽ х 4 суток',
+                price: 39960,
+              }, {
+                name:  'Сбор за услуги: скидка 2 179₽',
+                price: 0,
+                description: 'Lorem ipsum',
+              }, {
+                name: 'Сбор за дополнительные услуги',
+                price: 300,
+                description: 'Lorem ipsum',
+              }],
+            })
+            +login-form()
+            +room-info-card({
+                number: 888,
+                type: 'Люкс',
+                price: 9990,
+                photos: ['room1', 'room2'],
+                reviewsCount: 145,
+                rating: 5,
+            })
+            +room-info-card({
+              number: 840,
+              type: '',
+              price: 9900,
+              photos: ['room2', 'room1'],
+              reviewsCount: 65,
+              rating: 4,
+            })
 
-    div
-        +room-info-card({
-            number: 888,
-            type: 'Люкс',
-            price: 9990,
-            photos: ['room1', 'room2'],
-            reviewsCount: 145,
-        })
-
-    div
+    div.ui-kit-page__sections
         +navbar({
             isLoggedIn: true,
             userName: 'Cosmin Negoita',
@@ -277,7 +316,6 @@ block content
                 {label: 'Documentation', href: '#'}
             ],
         })
-    div
         +navbar({
             isLoggedIn: false,
             menuItems: [
@@ -296,7 +334,5 @@ block content
                 { label: 'Documentation', href: '#' }
             ],
         })
-    div
         +site-footer()
-    div
         +site-footer({light: true})

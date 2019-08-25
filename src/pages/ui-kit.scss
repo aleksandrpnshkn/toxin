@@ -1,0 +1,52 @@
+@import './../theme/variables';
+
+.ui-kit-page__form-elements {
+    padding: 60px 0;
+
+    .ui-kit-page__row {
+        @media #{$media__desktop} {
+            grid-template-columns: 360px 360px 266px;
+        }
+    }
+
+    .ui-kit-page__col {
+        display: grid;
+        grid-gap: 20px;
+    }
+}
+
+.ui-kit-page__cards {
+    background-color: #E5E5E5;
+}
+
+.ui-kit-page__cards-container {
+    display: grid;
+    grid-gap: 60px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 380px));
+    justify-content: center;
+    justify-items: center;
+    align-items: start;
+    padding: 60px 0;
+}
+
+.ui-kit-page__title  {
+    margin-bottom: 40px;
+}
+
+.ui-kit-page__row {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(auto-fit, 360px);
+    justify-content: space-between;
+    align-items: start;
+}
+
+.ui-kit-page__sections {
+    display: grid;
+    grid-gap: 40px;
+    padding: 60px 0;
+
+    background-color: #E5E5E5;
+}
+
+
