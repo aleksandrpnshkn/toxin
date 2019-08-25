@@ -2,6 +2,8 @@
 @import './../../theme/mixins';
 
 .navbar {
+    position: relative; // for shadow
+
     background: #FFFFFF;
     box-shadow: $shadow__light;
 }
