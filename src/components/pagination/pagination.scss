@@ -2,7 +2,13 @@
 @import './../../theme/mixins';
 
 .pagination {
+
+}
+
+.pagination__list {
+    @include reset-list();
     display: flex;
+    margin-bottom: 10px;
 }
 
 .pagination__item {
@@ -46,4 +52,8 @@
     &[aria-disabled='true'] {
         cursor: default;
     }
+}
+
+.pagination__info {
+    margin: 0;
 }
