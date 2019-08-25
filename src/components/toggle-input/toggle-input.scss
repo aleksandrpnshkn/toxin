@@ -29,16 +29,19 @@
         display: block;
         width: 12px;
         height: 12px;
+        margin-left: 0;
 
         background: $color__dark-shade25;
         border-radius: 50%;
+
+        transition: margin-left .15s;
     }
 }
 .toggle-input__checkbox:checked + .toggle-input__toggle-box {
     border-color: $color__purple;
 
     &::before {
-        margin-left: auto;
+        margin-left: 20px;
         background: $gradient__primary;
     }
 }
