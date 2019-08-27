@@ -8,7 +8,8 @@ include ../../components/like-btn/like-btn
 include ../../components/rate-btn/rate-btn
 include ../../components/range-slider/range-slider
 include ../../components/btn/btn
-include ../../components/dropdown/dropdown
+include ../../components/dropdown-furniture/dropdown-furniture
+include ../../components/dropdown-guests/dropdown-guests
 include ../../components/checkbox-list/checkbox-list
 include ../../components/bullet-list/bullet-list
 include ../../components/icon-text-list/icon-text-list
@@ -196,35 +197,10 @@ block content
                     +pagination({ pagesCount: 12, activePage: 2 })
 
                 div
-                    +dropdown({
-                      separate: true,
-                      initialSelectionText: 'Сколько мебели?',
-                      items: [{
-                        dataId: 'bedroom',
-                        label: 'Спальни',
-                        noun: {one: 'спальня', two: 'спальни', five: 'спален'},
-                      }, {
-                        dataId: 'bed',
-                        label: 'Кровати',
-                        noun: {one: 'кровать', two: 'кровати', five: 'кроватей'},
-                      }, {
-                        dataId: 'bathroom',
-                        label: 'Ванные комнаты',
-                        noun: {one: 'ванная комната', two: 'ванных комнаты', five: 'ванных комнат'},
-                      }],
-                    })
+                    +dropdown-furniture()
 
                 div
-                    +dropdown({
-                      separate: false,
-                      initialSelectionText: 'Сколько гостей?',
-                      controls: true,
-                      noun: {one: 'гость', two: 'гостя', five: 'гостей'},
-                      items: [
-                        {dataId: 'adult', label: 'Взрослые'},
-                        {dataId: 'child', label: 'Дети'},
-                      ],
-                    })
+                    +dropdown-guests()
 
                 div
                     +checkbox-list({

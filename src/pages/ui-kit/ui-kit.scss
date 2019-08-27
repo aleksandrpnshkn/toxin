@@ -5,7 +5,7 @@
 
     .ui-kit-page__row {
         @media #{$media__desktop} {
-            grid-template-columns: 360px 360px 266px;
+            grid-template-columns: 320px 320px 266px;
         }
     }
 
@@ -36,7 +36,7 @@
 .ui-kit-page__row {
     display: grid;
     grid-gap: 30px;
-    grid-template-columns: repeat(auto-fit, 360px);
+    grid-template-columns: repeat(auto-fit, minmax(auto, 360px));
     justify-content: space-between;
     align-items: start;
 }

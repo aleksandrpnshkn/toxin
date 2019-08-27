@@ -7,8 +7,6 @@
 .c-datepicker__output {
     position: relative;
 
-    max-width: 320px;
-
     @media #{$media__tablet} {
         display: flex;
     }
