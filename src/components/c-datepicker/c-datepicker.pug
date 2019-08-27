@@ -2,7 +2,7 @@ include ./../btn/btn
 
 mixin c-datepicker(param)
     - const { range, twoFields, label, fields } = param;
-    - const DEFAULT_VALUE = 'ДД.ММ.ГГГГ';
+    - const DEFAULT_VALUE = (range && !twoFields) ? 'ДД.ММ.ГГГГ - ДД.ММ.ГГГГ' : 'ДД.ММ.ГГГГ';
 
     div.c-datepicker(data-two-fields= (twoFields) ? 'true' : 'false')
         div.c-datepicker__output
