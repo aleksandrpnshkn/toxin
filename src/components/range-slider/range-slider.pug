@@ -1,5 +1,14 @@
-mixin rangeSlider(params)
-    - const { label, from, to, minValue, maxValue } = params;
+mixin range-slider(params)
+    -
+        const {
+            label = '',
+            from,
+            to,
+            minValue,
+            maxValue,
+            description,
+        } = params;
+
     div.range-slider(
         data-from=from
         data-to=to
