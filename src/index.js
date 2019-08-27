@@ -32,3 +32,4 @@ import './components/pagination';
 
 import './pages/ui-kit';
 import './pages/index';
+import './pages/search-room';

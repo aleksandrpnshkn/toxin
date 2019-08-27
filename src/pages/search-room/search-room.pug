@@ -1,0 +1,153 @@
+extend ./../../layout/main.pug
+
+include ./../../components/c-datepicker/c-datepicker
+include ./../../components/dropdown-guests/dropdown-guests
+include ./../../components/range-slider/range-slider
+include ./../../components/checkbox-list/checkbox-list
+include ./../../components/dropdown-furniture/dropdown-furniture
+include ./../../components/room-info-card/room-info-card
+include ./../../components/pagination/pagination
+
+block variables
+    - const title = 'Search room';
+    - const description = '';
+    - const pageClass = 'search-room-page';
+
+block content
+    div.search-room-page__container.container
+        aside.search-room-page__sidebar
+            form.search-room-page__filter
+                +c-datepicker({
+                  range: true,
+                  label: 'Даты пребывания в отеле',
+                })
+                +dropdown-guests()
+                +range-slider({
+                  label: 'Диапазон цены',
+                  description: 'Стоимость за сутки пребывания в номере',
+                  from: 0,
+                  to: 20000,
+                  minValue: 5000,
+                  maxValue: 10000,
+                })
+                +checkbox-list({
+                  title: 'Дополнительно',
+                  items: [
+                    { label: 'Можно курить', name: 'smoke' },
+                    { label: 'Можно с питомцами', name: 'pets' },
+                    { label: 'Можно пригласить гостей (до 10 человек)', name: 'guests' },
+                  ],
+                })
+                +checkbox-list({
+                  title: 'Дополнительно',
+                  items: [
+                    {label: 'Широкий коридор', name: 'ally-wide-corridor', description: 'Ширина коридоров в номере не менее 91 см.'},
+                    {label: 'Помощник для инвалидов', name: 'ally-help', description: 'На 1 этаже вас встретит специалист  и проводит до номера.'},
+                  ],
+                })
+                +dropdown-furniture()
+                +checkbox-list({
+                  title: 'Дополнительные удобства',
+                  expandable: true,
+                  items: [
+                    {label: 'Завтрак', name: 'breakfast'},
+                    {label: 'Письменный стол', name: 'desk'},
+                    {label: 'Стул для кормления', name: 'highchair'},
+                    {label: 'Кроватка', name: 'crib'},
+                    {label: 'Телевизор', name: 'tv'},
+                    {label: 'Шампунь', name: 'shampoo'},
+                    {label: 'Телевизор', name: 'tv'},
+                    {label: 'Шампунь', name: 'shampoo'}
+                  ],
+                })
+
+        main.search-room-page__content
+            h1.title Номера, которые мы для вас подобрали
+            div.search-room-page__results
+                +room-info-card({
+                  number: 888,
+                  price: 9990,
+                  photos: ['room1'],
+                  reviewsCount: 145,
+                  rating: 5,
+                })
+                +room-info-card({
+                  number: 840,
+                  price: 9900,
+                  photos: ['room1'],
+                  reviewsCount: 65,
+                  rating: 4,
+                })
+                +room-info-card({
+                  number: 980,
+                  price: 8500,
+                  photos: ['room1'],
+                  reviewsCount: 35,
+                  rating: 3,
+                })
+                +room-info-card({
+                  number: 856,
+                  price: 7300,
+                  photos: ['room1'],
+                  reviewsCount: 19,
+                  rating: 5,
+                })
+                +room-info-card({
+                  number: 740,
+                  price: 6000,
+                  photos: ['room1'],
+                  reviewsCount: 44,
+                  rating: 4,
+                })
+                +room-info-card({
+                  number: 982,
+                  price: 5800,
+                  photos: ['room1'],
+                  reviewsCount: 56,
+                  rating: 3,
+                })
+                +room-info-card({
+                  number: 678,
+                  price: 5500,
+                  photos: ['room1'],
+                  reviewsCount: 45,
+                  rating: 5,
+                })
+                +room-info-card({
+                  number: 450,
+                  price: 5300,
+                  photos: ['room1'],
+                  reviewsCount: 39,
+                  rating: 4,
+                })
+                +room-info-card({
+                  number: 350,
+                  price: 5000,
+                  photos: ['room1'],
+                  reviewsCount: 77,
+                  rating: 3,
+                })
+                +room-info-card({
+                  number: 666,
+                  price: 5000,
+                  photos: ['room1'],
+                  reviewsCount: 25,
+                  rating: 5,
+                })
+                +room-info-card({
+                  number: 444,
+                  price: 5000,
+                  photos: ['room1'],
+                  reviewsCount: 15,
+                  rating: 3,
+                })
+                +room-info-card({
+                  number: 352,
+                  price: 5000,
+                  photos: ['room1'],
+                  reviewsCount: 55,
+                  rating: 3,
+                })
+
+            div.search-room-page__pagination
+                +pagination()

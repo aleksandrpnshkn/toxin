@@ -1,0 +1,44 @@
+@import './../../theme/variables';
+
+.search-room-page__container {
+    display: grid;
+    grid-gap: 20px;
+    padding: 30px 0 70px;
+
+    @media #{$media__tablet} {
+       grid-template-columns: 236px 1fr;
+    }
+
+    @media #{$media__desktop} {
+        grid-gap: 60px;
+        grid-template-columns: 266px 1fr;
+    }
+}
+
+.search-room-page__filter {
+    display: grid;
+    grid-gap: 20px;
+}
+
+.search-room-page__results {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 270px);
+    grid-row-gap: 12px;
+    grid-column-gap: 6px;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    @media #{$media__tablet} {
+        justify-content: start;
+    }
+
+    @media #{$media__desktop} {
+        grid-row-gap: 20px;
+        grid-column-gap: 12px;
+    }
+}
+
+.search-room-page__pagination {
+    display: flex;
+    justify-content: center;
+}
