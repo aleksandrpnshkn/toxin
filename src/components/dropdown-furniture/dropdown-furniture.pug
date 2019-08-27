@@ -1,0 +1,21 @@
+include ./../dropdown/dropdown
+
+mixin dropdown-furniture()
+    +dropdown({
+      label: 'Удобства номера',
+      separate: true,
+      initialSelectionText: 'Сколько мебели?',
+      items: [{
+        dataId: 'bedroom',
+        label: 'Спальни',
+        noun: {one: 'спальня', two: 'спальни', five: 'спален'},
+      }, {
+        dataId: 'bed',
+        label: 'Кровати',
+        noun: {one: 'кровать', two: 'кровати', five: 'кроватей'},
+      }, {
+        dataId: 'bathroom',
+        label: 'Ванные комнаты',
+        noun: {one: 'ванная комната', two: 'ванных комнаты', five: 'ванных комнат'},
+      }],
+    })
