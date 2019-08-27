@@ -2,20 +2,21 @@ include ../icon/icon
 
 mixin checkbox(params)
     -
-        const { label,
-                name,
-                className='', // Additional classes for input
-                value,
-                checked=false,
-                description='',
-                disabled=false } = params;
+        const {
+            label,
+            name,
+            value,
+            checked = false,
+            description = '',
+            disabled = false,
+        } = params;
 
         const richMod = (description) ? 'checkbox--rich' : 'checkbox';
 
     div(class=`checkbox ${richMod}`)
         label.checkbox__container(tabindex=0)
             input(
-                class=`checkbox__input visuallyhidden ${className}`
+                class='checkbox__input visuallyhidden'
                 type='checkbox'
                 name=name
                 checked=checked
