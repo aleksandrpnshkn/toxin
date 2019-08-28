@@ -47,3 +47,10 @@
         background: $gradient__dark;
     }
 }
+.bullet-list--hoverable .bullet-list__item {
+    cursor: pointer;
+
+    #{$hover} {
+        font-weight: bold;
+    }
+}
