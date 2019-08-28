@@ -1,0 +1,27 @@
+include ./../bullet-list/bullet-list
+
+mixin rating-circle(params)
+    - const { greatVotes, goodVotes, okVotes, badVotes } = params;
+
+    div.rating-circle(
+        data-great-votes=greatVotes
+        data-good-votes=goodVotes
+        data-ok-votes=okVotes
+        data-bad-votes=badVotes
+    )
+        div.rating-circle__chart
+            div.rating-circle__votes
+                span.rating-circle__votes-count 260
+                br
+                span.rating-circle__votes-noun голосов
+
+        +bullet-list({
+          voteColored: true,
+          hoverable: true,
+          items: [
+            'Великолепно',
+            'Хорошо',
+            'Удовлетворительно',
+            'Разочарован',
+          ],
+        })
