@@ -12,23 +12,38 @@
 
 .bullet-list__item {
     display: flex;
-    margin-bottom: 10px;
-
     color: $color__dark-shade75;
-
-    &:last-child {
-        margin-bottom: 0;
-    }
 
     &::before {
         content: '';
 
         width: 10px;
         height: 10px;
-        margin-top: 6px;
+        margin-top: 7px;
         margin-right: 10px;
 
         background: $color__dark-shade25;
         border-radius: 50%;
+    }
+}
+.bullet-list--with-margins .bullet-list__item {
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.bullet-list--vote-colored .bullet-list__item {
+    &:nth-child(1)::before {
+        background: $gradient__orange;
+    }
+    &:nth-child(2)::before {
+        background: $gradient__secondary;
+    }
+    &:nth-child(3)::before {
+        background: $gradient__primary;
+    }
+    &:nth-child(4)::before {
+        background: $gradient__dark;
     }
 }

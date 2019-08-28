@@ -1,8 +1,11 @@
 mixin bullet-list(params)
-    - const { title, items } = params;
+    - const { title, items, withMargins, voteColored } = params;
+    - const withMarginsMod = (withMargins) ? 'bullet-list--with-margins' : '';
+    - const voteColoredMod = (voteColored) ? 'bullet-list--vote-colored' : '';
 
-    div.bullet-list
-        p.bullet-list__title.title.title--label= title
+    div(class=`bullet-list ${withMarginsMod} ${voteColoredMod}`)
+        if title
+            p.bullet-list__title.title.title--label= title
 
         ul.bullet-list__list
             for item in items
