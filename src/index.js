@@ -29,7 +29,9 @@ import './components/navbar';
 import './components/site-footer';
 import './components/socials';
 import './components/pagination';
+import './components/rating-circle';
 
 import './pages/ui-kit';
 import './pages/index';
 import './pages/search-room';
+import './pages/room-details';

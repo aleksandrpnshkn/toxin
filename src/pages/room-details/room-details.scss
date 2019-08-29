@@ -1,0 +1,40 @@
+@import './../../theme/variables';
+
+.room-details-page__room-details {
+    display: grid;
+    grid-gap: 50px 80px;
+    padding: 70px 0;
+
+    @media #{$media__tablet} {
+        grid-row-gap: 30px;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    @media #{$media__desktop} {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.room-details-page__reviews {
+    display: grid;
+    grid-gap: 20px;
+
+    @media #{$media__tablet} {
+        grid-column: span 2;
+    }
+}
+
+.room-details-page__book-room {
+    display: flex;
+    justify-content: center;
+
+    @media #{$media__tablet} {
+        display: block;
+        grid-column: span 2;
+    }
+
+    @media #{$media__desktop} {
+        grid-column: auto;
+        grid-row: span 3;
+    }
+}

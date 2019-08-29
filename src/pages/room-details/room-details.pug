@@ -1,0 +1,101 @@
+extend ./../../layout/main.pug
+
+include ./../../components/icon-text-list/icon-text-list
+include ./../../components/rating-circle/rating-circle
+include ./../../components/review/review
+include ./../../components/bullet-list/bullet-list
+include ./../../components/book-room-card/book-room-card
+
+block variables
+    - const title = 'Room details';
+    - const description = '';
+    - const pageClass = 'room-details-page';
+
+block content
+    main.room-details-page__content
+        div.room-details-page__photos
+            div
+            div
+                div
+                div
+
+        div.room-details-page__room-details.container
+            section
+                h2.title.title--2 Сведения о номере
+                +icon-text-list([{
+                  icon: 'insert_emoticon',
+                  title: 'Комфорт',
+                  description: 'Шумопоглощающие стены',
+                }, {
+                  icon: 'location_city',
+                  title: 'Удобство',
+                  description: 'Окно в каждой из спален',
+                }, {
+                  icon: 'whatshot',
+                  title: 'Уют',
+                  description: 'Номер оснащён камином',
+                }])
+            section
+                h2.title.title--2 Впечатления от номера
+                +rating-circle({
+                  greatVotes: 421,
+                  goodVotes: 262,
+                  okVotes: 235,
+                  badVotes: 40,
+                })
+
+            div.room-details-page__book-room
+                +book-room-card({
+                  roomNumber: 888,
+                  roomType: 'Люкс',
+                  roomPrice: 9990,
+                  priceList: [
+                    {
+                      name: '9 990₽ х 4 суток',
+                      price: 39960,
+                    },
+                    {
+                      name: 'Сбор за услуги: скидка 2 179₽',
+                      price: 0,
+                      description: 'Lorem ipsum',
+                    },
+                    {
+                      name: 'Сбор за дополнительные услуги',
+                      price: 300,
+                      description: 'Lorem ipsum',
+                    },
+                  ],
+                  total: 38081,
+                })
+
+            section.room-details-page__reviews
+                h2.title.title--2 Сведения о номере
+                +review({
+                  image: 'user1',
+                  name: 'Мурада Сарафанов',
+                  date: '2019/08/24 18:25:10 +03',
+                  likes: 12,
+                  isLiked: true,
+                  text: 'Великолепный матрас на кровати в основной спальне! А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. Выкрикивал комплименты повару — никто не жаловался из соседей.',
+                })
+                +review({
+                  image: 'user1',
+                  name: 'Патрисия Стёклышкова',
+                  date: '2019/07/21 18:25:10 +03',
+                  likes: 2,
+                  text: 'Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, каждый день новое блюдо и десерт как комплимент.',
+                })
+            section
+                h2.title.title--2 Правила
+                +bullet-list({
+                  withMargins: true,
+                  items: [
+                    'Нельзя с питомцами',
+                    'Без вечеринок и мероприятий',
+                    'Время прибытия — после 13:00, а выезд до 12:00',
+                  ],
+                })
+
+            section
+                h2.title.title--2 Отмена
+                p Бесплатная отмена в течение 48 ч. После этого при отмене не позднее чем за 5 дн. до прибытия вы получите полный возврат за вычетом сбора за услуги.
