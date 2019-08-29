@@ -2,17 +2,23 @@ include ./../like-btn/like-btn
 
 mixin review(params)
     -
-        const { imageUrl, imageUrlRetina, name, likes, text } = params;
+        const { image, name, likes, isLiked, text } = params;
         const moment = require('moment');
         moment.locale('ru');
         const date = moment().to(params.date);
 
+        const { baseUrl } = require('./../../config');
+
     div.review
         div.review__left
             div.review__avatar
-                img(src=imageUrl alt=name srcset=`${imageUrlRetina} 2x`)
+                img(
+                    src=`${baseUrl}assets/img/${image}.jpg`
+                    srcset=`${baseUrl}assets/img/${image}@2x.jpg 2x`
+                    alt=name
+                )
             div.review__likes
-                +likeBtn(likes)
+                +likeBtn(likes, isLiked)
         div.review__right
             p.review__name= name
             p.review__date= date
