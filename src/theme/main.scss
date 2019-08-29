@@ -40,6 +40,8 @@ html {
     color: $color__text-title;
 
     &--2 { // Item title inside widgets
+        margin-bottom: 20px;
+
         font-size: 19px;
         line-height: 24px;
     }
