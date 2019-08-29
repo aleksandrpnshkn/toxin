@@ -4,6 +4,7 @@ include ./../btn/btn
 
 mixin pick-room-card(title)
     - title = title || 'Найдем номера под ваши пожелания';
+    - const { baseUrl } = require('./../../config');
 
     div.pick-room-card.card
         h2.pick-room-card__title.title= title
@@ -22,4 +23,5 @@ mixin pick-room-card(title)
             +btn({
               label: 'Подобрать номер',
               blockArrow: true,
+              href: `${baseUrl}search-room.html`,
             })

@@ -7,6 +7,14 @@
     background: white;
     box-shadow: $shadow__light;
     border-radius: 4px;
+
+    #{$hover} {
+        box-shadow: $shadow__dark;
+    }
+}
+
+.room-info-card__link {
+    @include reset-link();
 }
 
 .room-info-card__slide {

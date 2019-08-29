@@ -4,20 +4,24 @@ include ./../rate-btn/rate-btn
 mixin room-info-card(params)
     - const { number, type, price, photos, reviewsCount, rating } = params;
     - const { getNoun } = require('./../../utils');
+    - const { baseUrl } = require('./../../config');
+    - const LINK = `${baseUrl}room-details.html`;
+
     div.room-info-card
-        div.room-info-card__carousel
-            for photoName in photos
-                div.room-info-card__slide
-                    img(
-                        src=`assets/img/${photoName}.jpg`
-                        srcset=`assets/img/${photoName}@2x.jpg 2x`
-                        alt=`Комната №${number}`
-                    )
-        div.room-info-card__info
-            div.room-info-card__room-info
-                +room-info({number, type, price})
-            div.room-info-card__rating
-                +rateBtn(rating)
-                p.room-info-card__reviews-count
-                    span.room-info-card__reviews-count-value= reviewsCount + ' '
-                    = getNoun(reviewsCount, 'Отзыв', 'Отзыва', 'Отзывов')
+        a.room-info-card__link(href=LINK)
+            div.room-info-card__carousel
+                for photoName in photos
+                    div.room-info-card__slide
+                        img(
+                            src=`assets/img/${photoName}.jpg`
+                            srcset=`assets/img/${photoName}@2x.jpg 2x`
+                            alt=`Комната №${number}`
+                        )
+            div.room-info-card__info
+                div.room-info-card__room-info
+                    +room-info({number, type, price})
+                div.room-info-card__rating
+                    +rateBtn(rating)
+                    p.room-info-card__reviews-count
+                        span.room-info-card__reviews-count-value= reviewsCount + ' '
+                        = getNoun(reviewsCount, 'Отзыв', 'Отзыва', 'Отзывов')

@@ -35,11 +35,11 @@ mixin navbar(params)
             else
                 div.navbar__user
                     +btn({
-                      label: 'Login',
+                      label: 'Войти',
                       light: true,
-                      type: 'button',
+                      href: `${baseUrl}login.html`,
                     })
                     +btn({
-                      label: 'register',
-                      type: 'button',
+                      label: 'Зарегистрироваться',
+                      href: `${baseUrl}registration.html`,
                     })
