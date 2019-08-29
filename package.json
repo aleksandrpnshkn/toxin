@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "webpack-dev-server --open --config webpack/webpack.dev.conf.js",
-    "build": "webpack --config webpack/webpack.build.conf.js"
+    "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config webpack/webpack.dev.conf.js",
+    "build": "cross-env NODE_ENV=prod webpack --config webpack/webpack.build.conf.js"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -36,6 +36,7 @@
   "dependencies": {
     "air-datepicker": "^2.2.3",
     "chartist": "^0.11.3",
+    "cross-env": "^5.2.0",
     "glob": "^7.1.4",
     "item-quantity-dropdown": "^2.0.2",
     "jquery": "^3.4.1",
