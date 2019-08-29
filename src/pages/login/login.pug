@@ -1,0 +1,12 @@
+extends ./../../templates/form-page-template/form-page-template
+
+include ./../../components/login-form/login-form
+
+block variables
+    - const title = 'Login page';
+    - const description = '';
+    - const pageClass = 'login-page';
+
+block form
+    main.login-page__content
+        +login-form()

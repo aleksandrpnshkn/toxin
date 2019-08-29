@@ -1,0 +1,21 @@
+@import './../../theme/variables';
+
+.form-page-template__bg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+
+    @media #{$media__tablet} {
+        min-height: 684px;
+
+        background-image: url("form-page-template-bg.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    @media #{$media__desktop} {
+        background-image: url("form-page-template-bg@2x.jpg");
+    }
+}

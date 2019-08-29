@@ -35,3 +35,4 @@ import './pages/ui-kit';
 import './pages/index';
 import './pages/search-room';
 import './pages/room-details';
+import './pages/login';
