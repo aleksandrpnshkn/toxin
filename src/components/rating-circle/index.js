@@ -43,6 +43,20 @@ $('.rating-circle').each(function() {
       .data('vote-type', 'bad')
       .data('votes', badVotes);
 
+    const getTargetSlice = function(target) {
+      const voteType = $(target).data('vote-type');
+
+      return $slices.filter((idx, slice) => {
+        return $(slice).data('voteType') === voteType;
+      });
+    };
+
+    const colorVotes = function(target) {
+      const $hoveredSlice = getTargetSlice(target);
+      const color = $hoveredSlice.css('stroke');
+      $votes.css('color', color);
+    };
+
     const showVotesCount = function({ target }) {
       if (lastTarget === target) return;
       lastTarget = target;
@@ -51,48 +65,24 @@ $('.rating-circle').each(function() {
 
       $votes.find('.rating-circle__votes-count').text(votes);
       $votes.find('.rating-circle__votes-noun').text(getNoun(votes, 'голос', 'голоса', 'голосов'));
+
+      colorVotes(target);
     };
 
     const hoveredMod = 'ct-slice-donut--hovered';
 
-    const addHoveredMod = function({ target }) { // TODO переключать через объект, хранить текущий элемент в аттрибуте главного контейнера
-      switch ($(target).data('vote-type')) {
-        case 'great':
-          $greatSlice.addClass(hoveredMod);
-          break;
-        case 'good':
-          $goodSlice.addClass(hoveredMod);
-          break;
-        case 'ok':
-          $okSlice.addClass(hoveredMod);
-          break;
-        case 'bad':
-          $badSlice.addClass(hoveredMod);
-          break;
-      }
+    const addHoveredMod = function({ target }) {
+      const $hoveredSlice = getTargetSlice(target);
+      $hoveredSlice.addClass(hoveredMod);
     };
 
     const removeHoveredMod = function({ target }) {
-      switch ($(target).data('vote-type')) {
-        case 'great':
-          $greatSlice.removeClass(hoveredMod);
-          break;
-        case 'good':
-          $goodSlice.removeClass(hoveredMod);
-          break;
-        case 'ok':
-          $okSlice.removeClass(hoveredMod);
-          break;
-        case 'bad':
-          $badSlice.removeClass(hoveredMod);
-          break;
-      }
+      const $hoveredSlice = getTargetSlice(target);
+      $hoveredSlice.removeClass(hoveredMod);
     };
 
     $slices.mouseover(showVotesCount);
     $labels.mouseover(showVotesCount);
-    $slices.hover(addHoveredMod, removeHoveredMod);
     $labels.hover(addHoveredMod, removeHoveredMod);
   });
 });
-
