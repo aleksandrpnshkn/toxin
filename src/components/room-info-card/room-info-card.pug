@@ -21,7 +21,7 @@ mixin room-info-card(params)
                 div.room-info-card__room-info
                     +room-info({number, type, price})
                 div.room-info-card__rating
-                    +rateBtn(rating)
+                    +rateBtn(rating, true)
                     p.room-info-card__reviews-count
                         span.room-info-card__reviews-count-value= reviewsCount + ' '
                         = getNoun(reviewsCount, 'Отзыв', 'Отзыва', 'Отзывов')

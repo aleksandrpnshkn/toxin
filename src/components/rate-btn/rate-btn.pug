@@ -1,4 +1,4 @@
-mixin rateBtn(rate)
+mixin rateBtn(rate, readonly)
     - let stars = 5;
 
     .rate-btn(data-rate=rate)
@@ -6,6 +6,7 @@ mixin rateBtn(rate)
             button(
                 class=`rate-btn__star ${(rate > 0) ? '' : 'rate-btn__star--empty'}`
                 type='button'
+                disabled=readonly
             )
                 i.rate-btn__icon.material-icons star
                     i.rate-btn__inner-icon.material-icons star
