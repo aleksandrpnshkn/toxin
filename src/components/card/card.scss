@@ -4,10 +4,14 @@
     box-sizing: border-box;
     max-width: 380px;
     width: 100%;
-    padding: 40px 30px 30px;
+    padding: 40px 0;
 
-    background: #FFFFFF;
-    border: 1px solid $color__card-border;
-    border-radius: 4px;
-    box-shadow: $shadow__dark;
+    @media #{$media__tablet} {
+        padding: 40px 30px 30px;
+
+        background: #FFFFFF;
+        border: 1px solid $color__card-border;
+        border-radius: 4px;
+        box-shadow: $shadow__dark;
+    }
 }

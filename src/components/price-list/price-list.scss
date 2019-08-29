@@ -20,8 +20,9 @@
 }
 
 .price-list__name {
+    flex-shrink: 1;
     position: relative; // description tooltip
-    width: 240px;
+    max-width: 240px;
     padding-right: 25px; // description tooltip
 }
 
