@@ -3,19 +3,19 @@ include ./../dropdown/dropdown
 mixin dropdown-furniture()
     +dropdown({
       label: 'Удобства номера',
-      separate: true,
-      initialSelectionText: 'Сколько мебели?',
+      initialSelection: 'Сколько мебели?',
+      controls: true,
       items: [{
-        dataId: 'bedroom',
+        name: 'bedroom',
         label: 'Спальни',
-        noun: {one: 'спальня', two: 'спальни', five: 'спален'},
+        nouns: ['спальня', 'спальни', 'спален'],
       }, {
-        dataId: 'bed',
+        name: 'bed',
         label: 'Кровати',
-        noun: {one: 'кровать', two: 'кровати', five: 'кроватей'},
+        nouns: ['кровать', 'кровати', 'кроватей'],
       }, {
-        dataId: 'bathroom',
+        name: 'bathroom',
         label: 'Ванные комнаты',
-        noun: {one: 'ванная комната', two: 'ванных комнаты', five: 'ванных комнат'},
+        nouns: ['ванная комната', 'ванных комнаты', 'ванных комнат'],
       }],
     })

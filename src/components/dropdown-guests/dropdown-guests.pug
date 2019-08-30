@@ -2,20 +2,20 @@ include ./../dropdown/dropdown
 
 mixin dropdown-guests()
     +dropdown({
-      separate: false,
-      initialSelectionText: 'Сколько гостей?',
-      controls: true,
       label: 'Гости',
-      noun: {
-        one: 'гость',
-        two: 'гостя',
-        five: 'гостей',
-      },
+      initialSelection: 'Сколько гостей?',
+      controls: true,
       items: [{
-        dataId: 'adult',
+        name: 'adults',
         label: 'Взрослые',
+        nouns: ['гость', 'гостя', 'гостей'],
       }, {
-        dataId: 'child',
+        name: 'children',
         label: 'Дети',
+        nouns: ['гость', 'гостя', 'гостей'],
+      }, {
+        name: 'babies',
+        label: 'Младенцы',
+        nouns: ['младенец', 'младенца', 'младенцев'],
       }],
     })

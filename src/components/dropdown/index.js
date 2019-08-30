@@ -3,56 +3,62 @@ import 'item-quantity-dropdown/lib/item-quantity-dropdown.min.css';
 import './dropdown.scss';
 import { getNoun } from './../../utils';
 
-const getNounFromAttrs = function(count, $element) {
-  const one = $element.attr('data-noun-one');
-  const two = $element.attr('data-noun-two');
-  const five = $element.attr('data-noun-five');
-  return getNoun(count, one, two, five);
+const showInitialSelection = function($dropdown) {
+  $dropdown.find('.dropdown__selection').val($dropdown.data('initialSelection'));
 };
 
-const showDefaultSelectionText = function($dropdown) {
-  $('.iqdropdown-selection', $dropdown).text($dropdown.attr('data-initial-selection-text'));
+const setValue = function($dropdown, itemName, itemCount) {
+  $dropdown.find(`.dropdown__input[name=${itemName}]`).first().val(itemCount);
 };
 
-const showSelection = function($dropdown, total) {
-  const noun = getNounFromAttrs(total, $dropdown);
-  $('.iqdropdown-selection', $dropdown).text(`${total} ${noun}`);
-};
+// If there is fields with same nouns, combine them
+// Plugin uses data-id for counter, so I can't repeat them
+const showSelection = function($dropdown) {
+  const $inputs = $dropdown.find('.dropdown__input');
+  const selectionData = {}; // nounsArray: count
 
-const showSeparateSelection = function($dropdown, itemId, count) {
-  const countData = Object.assign($dropdown.data('count'), {[itemId]: count}); // Get refreshed count data
-  $dropdown.data('count', countData); // Store new data
+  // Collect all values in case there will be identical nouns
+  $inputs.each(function() {
+    const $currentInput = $(this);
+    const nounsKey = $currentInput.attr('data-nouns');
+    let count = Number($currentInput.val());
 
-  let selectionArr = [];
-  for (let item in countData) {
-    const $item = $(`[data-id=${item}]`, $dropdown); // Find item
-    const currentCount = countData[item] || 0; // Get count
-    const noun = getNounFromAttrs(currentCount, $item); // Get noun
-    selectionArr.push(`${currentCount} ${noun}`); // Push text in array
+    if (nounsKey in selectionData) { // Check if object already contains a value
+      count += selectionData[nounsKey];
+    }
+    selectionData[nounsKey] = count;
+  });
+
+  const selection = [];
+  for (let nounsStr in selectionData) {
+    const count = selectionData[nounsStr];
+    if (!count) continue; // Don't show item in selection if 0
+
+    const noun = getNoun(count, ...JSON.parse(nounsStr)); // Get noun
+    selection.push(`${count} ${noun}`);
   }
-  $('.iqdropdown-selection', $dropdown).text(selectionArr.join(', ')); // Set selection text
+
+  $dropdown.find('.dropdown__selection').val(selection.join(', ')); // Set selection text
+};
+
+const resetSelection = function($dropdown) {
+  $dropdown.find('.dropdown__input').val(0);
+  showInitialSelection($dropdown);
 };
 
 $('.dropdown').each(function() {
   const $dropdown = $(this);
   const $controls = $('.dropdown__controls', $dropdown);
 
-  $dropdown.data('count', {}); // Init data object
-
-  const isSeparate = $dropdown.hasClass('dropdown--separate');
-
   $('.iqdropdown', $dropdown).iqDropdown({
-    onChange(itemId, count, total) {
-      if (isSeparate) {
-        showSeparateSelection($dropdown, itemId, count);
-      } else {
-        showSelection($dropdown, total);
-      }
+    onChange(itemName, itemCount, total) {
+      setValue($dropdown, itemName, itemCount);
+      showSelection($dropdown);
 
       if (total) {
         $('.dropdown__reset-btn', $dropdown).removeClass('hidden');
       } else {
-        showDefaultSelectionText($dropdown);
+        showInitialSelection($dropdown);
         $('.dropdown__reset-btn', $dropdown).addClass('hidden');
       }
     },
@@ -61,5 +67,7 @@ $('.dropdown').each(function() {
   // Prevent close if controls is clicked (click handler in item-quantity-dropdown)
   $controls.click((e) => e.stopPropagation());
 
-  showDefaultSelectionText($dropdown);
+  $controls.find('.dropdown__reset-btn').click(() => resetSelection($dropdown));
+
+  showInitialSelection($dropdown);
 });

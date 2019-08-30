@@ -3,35 +3,30 @@ include ./../btn/btn
 mixin dropdown(params)
     -
         const {
-            separate=false,
             label,
             items,
-            noun,
-            initialSelectionText='',
-            controls=false } = params;
-    //- Here is nouns for not separated selection
-    div(
-        class=`dropdown ${separate ? 'dropdown--separate' : ''}`
-        data-noun-one=(!separate && noun.one)
-        data-noun-two=(!separate && noun.two)
-        data-noun-five=(!separate && noun.five)
-        data-initial-selection-text=initialSelectionText
-    )
-        p.dropdown__title.title.title--label= label
+            initialSelection = '',
+            controls = false
+        } = params;
+
+    div.dropdown(data-initial-selection=initialSelection)
+        if label
+            p.dropdown__title.title.title--label= label
+
         div.iqdropdown
-            p.dropdown__selection.iqdropdown-selection
-                p.dropdown__more-icon.material-icons expand_more
+            div.dropdown__selection-wrapper
+                input.dropdown__selection(readonly)
+                i.dropdown__more-icon.material-icons expand_more
+
             div.dropdown__menu.iqdropdown-menu
-                - let i = 0
                 for item in items
-                    - const { label, dataId, noun } = item;
-                    //- Here is nouns for separated selection
-                    div.dropdown__option.iqdropdown-menu-option(
-                        data-id=dataId
-                        data-noun-one=(separate && noun.one)
-                        data-noun-two=(separate && noun.two)
-                        data-noun-five=(separate && noun.five)
-                    )
+                    - const { label, name, nouns } = item;
+                    div.dropdown__option.iqdropdown-menu-option(data-id = name)
+                        input.dropdown__input.visuallyhidden(
+                            type = "number"
+                            name = name
+                            data-nouns = nouns
+                        )
                         div
                             p.dropdown__item.iqdropdown-item= label
 
@@ -42,9 +37,11 @@ mixin dropdown(params)
                                 linkStyle: true,
                                 gray: true,
                                 label: 'Очистить',
+                                type: 'button',
                             })
                         div.dropdown__apply-btn
                             +btn({
                                 linkStyle: true,
                                 label: 'Применить',
+                                type: 'submit',
                             })
