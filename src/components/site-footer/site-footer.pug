@@ -1,5 +1,6 @@
 include ./../field/field
 include ./../socials/socials
+include ./../logo/logo
 
 mixin site-footer(params)
     - const { light } = params || {};
@@ -10,8 +11,7 @@ mixin site-footer(params)
         div.site-footer__container.container
             div.site-footer__about
                 div.site-footer__logo
-                    a(href=baseUrl)
-                        img(src=`${baseUrl}assets/img/logo.svg` alt='Toxin logo')
+                    +logo()
 
                 div.site-footer__description Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
 

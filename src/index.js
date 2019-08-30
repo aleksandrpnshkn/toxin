@@ -25,6 +25,7 @@ import './components/book-room-card';
 import './components/register-form';
 import './components/login-form';
 import './components/room-info-card';
+import './components/logo';
 import './components/navbar';
 import './components/site-footer';
 import './components/socials';

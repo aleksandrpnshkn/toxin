@@ -1,0 +1,10 @@
+mixin logo(withoutLink)
+    - const { baseUrl } = self.htmlWebpackPlugin.options;
+
+    div.logo
+        if withoutLink
+            img.logo__image(src=require('./../../assets/img/logo.svg') alt='Toxin logo')
+        else
+            a.logo__link(href=baseUrl)
+                span.visuallyhidden Главная страница
+                img.logo__image(src=require('./../../assets/img/logo.svg') alt='Toxin logo')

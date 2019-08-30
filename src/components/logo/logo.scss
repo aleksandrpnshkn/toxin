@@ -1,0 +1,14 @@
+@import './../../theme/variables';
+
+.logo__link {
+    display: flex;
+    align-items: center;
+
+    #{$hover} {
+        opacity: 0.8;
+    }
+}
+
+.logo__image {
+    height: 40px;
+}

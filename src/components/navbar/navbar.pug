@@ -1,4 +1,5 @@
 include ./../btn/btn
+include ./../logo/logo
 
 mixin navbar(params)
     - const { isLoggedIn, menuItems, userName } = params;
@@ -7,9 +8,7 @@ mixin navbar(params)
     nav.navbar
         div.navbar__container.container
             div.navbar__brand
-                a.navbar__brand-link(href=baseUrl)
-                    span.visuallyhidden Главная страница
-                    img.navbar__logo(src=require('./../../assets/img/logo.svg') alt='Toxin logo')
+                +logo()
 
             div.navbar__menu(aria-expanded="true")
                 ul.navbar__menu-list

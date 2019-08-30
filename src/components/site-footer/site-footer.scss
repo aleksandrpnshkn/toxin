@@ -80,17 +80,10 @@
 
 .site-footer__logo {
     transform: translateY(-4px);
-
-    width: 106px;
-    height: 40px;
     margin: 0 auto 20px;
 
     @media #{$media__tablet} {
         margin: 0 0 20px;
-    }
-
-    #{$hover} {
-        opacity: 0.8;
     }
 }
 
