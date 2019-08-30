@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "cross-env NODE_ENV=dev webpack-dev-server --open --config webpack/webpack.dev.conf.js",
-    "build": "cross-env NODE_ENV=prod webpack --config webpack/webpack.build.conf.js"
+    "build": "cross-env NODE_ENV=prod webpack --config webpack/webpack.build.conf.js",
+    "deploy": "yarn build && gh-pages --dist build"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

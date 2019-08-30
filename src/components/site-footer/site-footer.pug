@@ -3,62 +3,62 @@ include ./../socials/socials
 
 mixin site-footer(params)
     - const { light } = params || {};
-    - const { baseUrl } = require('./../../config');
+    - const { baseUrl } = self.htmlWebpackPlugin.options;
     - const lightMod = (light) ? 'site-footer--light' : '';
 
     footer(class=`site-footer ${lightMod}`)
-            div.site-footer__container.container
-                div.site-footer__about
-                    div.site-footer__logo
-                        a(href=baseUrl)
-                            img(src=`${baseUrl}assets/img/logo.svg` alt='Toxin logo')
+        div.site-footer__container.container
+            div.site-footer__about
+                div.site-footer__logo
+                    a(href=baseUrl)
+                        img(src=`${baseUrl}assets/img/logo.svg` alt='Toxin logo')
 
-                    div.site-footer__description Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
+                div.site-footer__description Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»
 
-                nav.site-footer__menu
-                    div
-                        h3.site-footer__menu-title.title.title--cta Навигация
-                        ul.site-footer__menu-list
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') О нас
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Новости
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Служба поддержки
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Услуги
-                    div
-                        h3.site-footer__menu-title.title.title--cta О нас
-                        ul.site-footer__menu-list
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') О сервисе
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Наша команда
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Вакансии
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Инвесторы
-                    div
-                        h3.site-footer__menu-title.title.title--cta Служба поддержки
-                        ul.site-footer__menu-list
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Соглашения
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Сообщества
-                            li.site-footer__menu-item
-                                a.site-footer__menu-link(href='#') Связь с нами
+            nav.site-footer__menu
+                div
+                    h3.site-footer__menu-title.title.title--cta Навигация
+                    ul.site-footer__menu-list
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') О нас
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Новости
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Служба поддержки
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Услуги
+                div
+                    h3.site-footer__menu-title.title.title--cta О нас
+                    ul.site-footer__menu-list
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') О сервисе
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Наша команда
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Вакансии
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Инвесторы
+                div
+                    h3.site-footer__menu-title.title.title--cta Служба поддержки
+                    ul.site-footer__menu-list
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Соглашения
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Сообщества
+                        li.site-footer__menu-item
+                            a.site-footer__menu-link(href='#') Связь с нами
 
-                label.site-footer__newsletter
-                    h3.site-footer__newsletter-title.title.title--cta Подписка
-                    p.site-footer__newsletter-text Получайте специальные предложения и новости сервиса
-                    +field({
-                      type: 'email',
-                      label: 'Email',
-                      hideLabel: true,
-                      arrowIcon: true,
-                    })
+            label.site-footer__newsletter
+                h3.site-footer__newsletter-title.title.title--cta Подписка
+                p.site-footer__newsletter-text Получайте специальные предложения и новости сервиса
+                +field({
+                  type: 'email',
+                  label: 'Email',
+                  hideLabel: true,
+                  arrowIcon: true,
+                })
 
-            div.site-footer__bottom
-                div.site-footer__bottom-container.container
-                    p.site-footer__copyright Copyright © 2018 Toxin отель. Все права зачищены.
-                    +socials()
+        div.site-footer__bottom
+            div.site-footer__bottom-container.container
+                p.site-footer__copyright Copyright © 2018 Toxin отель. Все права зачищены.
+                +socials()

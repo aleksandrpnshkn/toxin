@@ -7,14 +7,12 @@ mixin review(params)
         moment.locale('ru');
         const date = moment().to(params.date);
 
-        const { baseUrl } = require('./../../config');
-
     div.review
         div.review__left
             div.review__avatar
                 img(
-                    src=`${baseUrl}assets/img/${image}.jpg`
-                    srcset=`${baseUrl}assets/img/${image}@2x.jpg 2x`
+                    src=require(`./../../assets/img/${image}.jpg`)
+                    srcset=require(`./../../assets/img/${image}@2x.jpg`) + ' 2x'
                     alt=name
                 )
             div.review__likes

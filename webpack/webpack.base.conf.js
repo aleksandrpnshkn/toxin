@@ -14,7 +14,7 @@ const PATHS = {
 const PAGES_DIR = `${PATHS.src}/pages`;
 const PAGES = glob.sync(`${PAGES_DIR}/**/*.pug`).map((pagePath) => path.basename(pagePath));
 
-const { baseUrl } = require('./../src/config');
+const { baseUrl } = require('../config');
 
 module.exports = {
   externals: {
@@ -44,6 +44,9 @@ module.exports = {
     rules: [{
       test: /\.pug$/,
       loader: 'pug-loader',
+      options: {
+        self: true, // https://stackoverflow.com/questions/38980925/make-variable-accessible-in-all-pug-files
+      },
     }, {
       test: /\.js$/,
       loader: 'babel-loader',
@@ -101,6 +104,7 @@ module.exports = {
     ...PAGES.map((page) => new HtmlPlugin({
       template: `${PAGES_DIR}/${page.split('.')[0]}/${page}`,
       filename: `./${page.replace(/\.pug$/, '.html')}`,
+      baseUrl,
     })),
     new CopyPlugin([
       { from: `${PATHS.src}/assets`, to: `${PATHS.assets}` },

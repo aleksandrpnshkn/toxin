@@ -2,14 +2,14 @@ include ./../btn/btn
 
 mixin navbar(params)
     - const { isLoggedIn, menuItems, userName } = params;
-    - const { baseUrl } = require('./../../config');
+    - const { baseUrl } = self.htmlWebpackPlugin.options;
 
     nav.navbar
         div.navbar__container.container
             div.navbar__brand
                 a.navbar__brand-link(href=baseUrl)
                     span.visuallyhidden Главная страница
-                    img.navbar__logo(src=`${baseUrl}assets/img/logo.svg` alt='Toxin logo')
+                    img.navbar__logo(src=require('./../../assets/img/logo.svg') alt='Toxin logo')
 
             div.navbar__menu(aria-expanded="true")
                 ul.navbar__menu-list

@@ -4,7 +4,7 @@ include ./../btn/btn
 
 mixin pick-room-card(title)
     - title = title || 'Найдем номера под ваши пожелания';
-    - const { baseUrl } = require('./../../config');
+    - const { baseUrl } = self.htmlWebpackPlugin.options;
 
     div.pick-room-card.card
         h2.pick-room-card__title.title= title
