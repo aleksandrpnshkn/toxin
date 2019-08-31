@@ -13,8 +13,8 @@ mixin room-info-card(params)
                 for photoName in photos
                     div.room-info-card__slide
                         img(
-                            src=require(`./../../assets/img/${photoName}.jpg`)
-                            srcset=require(`./../../assets/img/${photoName}@2x.jpg`) + ' 2x'
+                            src=require(`./../../assets/img/rooms/${photoName}.jpg`)
+                            srcset=require(`./../../assets/img/rooms/${photoName}@2x.jpg`) + ' 2x'
                             alt=`Комната №${number}`
                         )
             div.room-info-card__info

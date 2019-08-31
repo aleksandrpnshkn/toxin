@@ -107,7 +107,7 @@ module.exports = {
       baseUrl,
     })),
     new CopyPlugin([
-      { from: `${PATHS.src}/assets`, to: `${PATHS.assets}` },
+      { from: `${PATHS.src}/static`, to: `${PATHS.assets}` },
     ]),
     new webpack.ProvidePlugin({
       $: 'jquery',
